@@ -1,0 +1,22 @@
+"" general
+
+set titlestring=Firefox
+set complete=l
+
+"" key mappings
+
+"tabs
+noremap gt gT
+noremap gz gt
+
+" scrolling
+noremap j 7j
+noremap k 7k
+noremap J <C-d>
+noremap K <C-u>
+noremap h H
+noremap H h
+noremap l L
+noremap L l
+noremap o <C-l>
+noremap t <C-t>
