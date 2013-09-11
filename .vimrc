@@ -79,6 +79,6 @@ let g:Tfx_ViewRule_pdf = 'evince'
 
 "" different themes
 
-"colors asu1dark
+colors asu1dark
 "colors biogoo
-colors navajo-night
+"colors navajo-night
