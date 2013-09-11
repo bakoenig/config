@@ -1,7 +1,5 @@
 ### .zshrc.local
 
-prompt off
-
 ## some variables
 
 export PATH=$PATH:~/bin
