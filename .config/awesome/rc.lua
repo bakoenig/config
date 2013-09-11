@@ -41,8 +41,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 --beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
-beautiful.init("/home/bernhard/.config/awesome/themes/crown/theme.lua")
--- other themes: crown, dunzor, dust, grey-new, wombat, zenburn
+beautiful.init("/home/bernhard/.config/awesome/themes/dunzor/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
@@ -125,7 +124,7 @@ spacer = wibox.widget.textbox(" ")
 separator = wibox.widget.textbox("|")
 -- Network usage widget
 netwidget = wibox.widget.textbox()
-vicious.register(netwidget, vicious.widgets.net, '<span color="#FFA500"> Dn ${wlp9s0 down_kb}</span> <span color="#7F9F7F">Up ${wlp9s0 up_kb}</span>', 7)
+vicious.register(netwidget, vicious.widgets.net, '<span color="#FFA500"> Dn ${wlp4s0 down_kb}</span> <span color="#7F9F7F">Up ${wlp4s0 up_kb}</span>', 7)
 -- Memory usage widget
 memwidget = wibox.widget.textbox()
 vicious.register(memwidget, vicious.widgets.mem, " RAM: $1%", 13)

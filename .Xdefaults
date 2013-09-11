@@ -8,8 +8,8 @@ URxvt.scrollBar:	true
 URxvt.scrollBar_right:	true
 URxvt.scrollcolor: 	#B2B2B2
 URxvt.scrollstyle:	plain
-URxvt.font:		xft:Dina-10:antialias=false
-URxvt.boldFont:		xft:Dina-10:antialias=false
+!URxvt.font:		xft:Dina-10:antialias=false
+!URxvt.boldFont:		xft:Dina-10:antialias=false
 URxvt.cursorBlink:	false
 URxvt.cursorUnderline:	false
 URxvt.cursorColor:	#FFFF00
