@@ -41,8 +41,8 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 --beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
-beautiful.init("/home/bernhard/.config/awesome/themes/crown/theme.lua")
--- other themes: crown, dunzor, dust, grey, wombat, zenburn
+beautiful.init("/home/bernhard/.config/awesome/themes/grey-new/theme.lua")
+-- other themes: crown, dunzor, dust, grey-new, wombat, zenburn
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
