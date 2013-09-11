@@ -1,6 +1,5 @@
 "" general settings
 
-
 filetype plugin indent on
 set nocompatible
 set autoindent
