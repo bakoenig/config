@@ -42,8 +42,11 @@ end
 -- Themes define colours, icons, and wallpapers
 --beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
 <<<<<<< HEAD
+<<<<<<< HEAD
 beautiful.init("/home/bernhard/.config/awesome/themes/dunzor/theme.lua")
 =======
+=======
+>>>>>>> 4a631a363e9d2b12eeea587f95fc92c148e48afe
 beautiful.init("/home/bernhard/.config/awesome/themes/sand/theme.lua")
 -- other themes: crown, dunzor, dust, grey-new, wombat, zenburn
 >>>>>>> 4a631a363e9d2b12eeea587f95fc92c148e48afe
@@ -131,14 +134,20 @@ separator = wibox.widget.textbox("|")
 
 -- Network usage widget
 <<<<<<< HEAD
+<<<<<<< HEAD
 netwidget = wibox.widget.textbox()
 vicious.register(netwidget, vicious.widgets.net, '<span color="#FFA500"> Dn ${wlp4s0 down_kb}</span> <span color="#7F9F7F">Up ${wlp4s0 up_kb}</span>', 7)
 =======
+=======
+>>>>>>> 4a631a363e9d2b12eeea587f95fc92c148e48afe
 downwidget = wibox.widget.textbox()
 vicious.register(downwidget, vicious.widgets.net, '<span color="#75b919">${wlp9s0 down_kb}</span>', 5)
 upwidget = wibox.widget.textbox()
 vicious.register(upwidget, vicious.widgets.net, '<span color="#5785bc">${wlp9s0 up_kb}</span>', 5)
 
+<<<<<<< HEAD
+>>>>>>> 4a631a363e9d2b12eeea587f95fc92c148e48afe
+=======
 >>>>>>> 4a631a363e9d2b12eeea587f95fc92c148e48afe
 -- Memory usage widget
 --memwidget = wibox.widget.textbox()
