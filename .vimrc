@@ -7,8 +7,7 @@ set nobackup
 set noswapfile
 set backspace=2
 set guioptions=acei
-set list
-set listchars=tab:>.,trail:.,extends:#,nbsp:.
+set tabstop=4
 
 " allow changing the buffer without saving
 set hidden
