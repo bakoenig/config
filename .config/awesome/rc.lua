@@ -41,7 +41,12 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 --beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
+<<<<<<< HEAD
 beautiful.init("/home/bernhard/.config/awesome/themes/dunzor/theme.lua")
+=======
+beautiful.init("/home/bernhard/.config/awesome/themes/sand/theme.lua")
+-- other themes: crown, dunzor, dust, grey-new, wombat, zenburn
+>>>>>>> 4a631a363e9d2b12eeea587f95fc92c148e48afe
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
@@ -119,37 +124,59 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- }}}
 
 -- {{{ Wibox
+
 -- Separators
 spacer = wibox.widget.textbox(" ")
 separator = wibox.widget.textbox("|")
+
 -- Network usage widget
+<<<<<<< HEAD
 netwidget = wibox.widget.textbox()
 vicious.register(netwidget, vicious.widgets.net, '<span color="#FFA500"> Dn ${wlp4s0 down_kb}</span> <span color="#7F9F7F">Up ${wlp4s0 up_kb}</span>', 7)
+=======
+downwidget = wibox.widget.textbox()
+vicious.register(downwidget, vicious.widgets.net, '<span color="#75b919">${wlp9s0 down_kb}</span>', 5)
+upwidget = wibox.widget.textbox()
+vicious.register(upwidget, vicious.widgets.net, '<span color="#5785bc">${wlp9s0 up_kb}</span>', 5)
+
+>>>>>>> 4a631a363e9d2b12eeea587f95fc92c148e48afe
 -- Memory usage widget
-memwidget = wibox.widget.textbox()
-vicious.register(memwidget, vicious.widgets.mem, " RAM: $1%", 13)
-memwidget:buttons(awful.util.table.join(
-	  awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvt -e htop -s PERCENT_MEM")
-	  end)))
+--memwidget = wibox.widget.textbox()
+--vicious.register(memwidget, vicious.widgets.mem, " RAM: $1%", 13)
+--memwidget:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvt -e htop -s PERCENT_MEM") end)))
+
 -- CPU usage widget
 cpuwidget = awful.widget.graph()
 cpuwidget:set_width(50)
 cpuwidget:set_color("linear:0,0:0,20:0,#ff0000:1,#00ff00")
 vicious.register(cpuwidget, vicious.widgets.cpu, "$1")
-cpuwidget:buttons(awful.util.table.join(
-	  awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvt -e htop -s PERCENT_CPU")
-	  end)))
+cpuwidget:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvt -e htop -s PERCENT_CPU") end)))
+
 -- CPU temperature
-thermalwidget = wibox.widget.textbox()
-vicious.register(thermalwidget, vicious.widgets.thermal, '<span color="#FF0000"> $1°C</span>', 13, { "coretemp.0", "core"} )
+thermalwidget = wibox.widget.textbox() vicious.register(thermalwidget, vicious.widgets.thermal, '<span color="#FF0000"> $1°C</span>', 13, { "coretemp.0", "core"})
+
 -- Battery widget
-batwidget = wibox.widget.textbox()
-vicious.register(batwidget, vicious.widgets.bat, '<span color="#3385FF"> BAT $2%</span>', 60, "BAT1")
+batwidget = wibox.widget.textbox() vicious.register(batwidget, vicious.widgets.bat, '<span color="#28619d">$2%</span>', 60, "BAT1")
+
 -- Create a textclock widget
-mytextclock = awful.widget.textclock()
-mytextclock:buttons(awful.util.table.join(
-	  awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvt -e sh ~/bin/calendar.sh")
-	  end)))
+mytextclock = awful.widget.textclock() mytextclock:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvt -e sh ~/bin/calendar.sh") end)))
+
+-- Volume widget
+volwidget = awful.widget.progressbar()
+volwidget:set_width(15)
+--volwidget:set_height(30)
+volwidget:set_vertical(true)
+volwidget:set_color("linear:0,0:0,20:0,#ffa500:1,#800000")
+vicious.register(volwidget, vicious.widgets.volume, "$1", 1, "Master")
+volwidget:buttons(awful.util.table.join(
+awful.button({ }, 3, function ()
+awful.util.spawn_with_shell("urxvt -e alsamixer") end),
+awful.button({ }, 4, function ()
+awful.util.spawn("amixer set Master 2%+") end),
+awful.button({ }, 5, function ()
+awful.util.spawn("amixer set Master 2%-") end)
+))
+
 
 mywibox = {}
 mypromptbox = {}
@@ -181,10 +208,16 @@ mytasklist.buttons = awful.util.table.join(
 					  )
 
 for s = 1, screen.count() do
-    -- Create a promptbox for each screen
+
+	updownicon = wibox.widget.imagebox()
+ 	updownicon:set_image(awful.util.getdir("config") .. "/icons/transfer.png")
+	baticon = wibox.widget.imagebox()
+	baticon:set_image(awful.util.getdir("config") .. "/icons/battery.png")
+	cpuicon = wibox.widget.imagebox()
+	cpuicon:set_image(awful.util.getdir("config") .. "/icons/cpu.png")
+
+
     mypromptbox[s] = awful.widget.prompt()
-    -- Create an imagebox widget which will contains an icon indicating which layout we're using.
-    -- We need one layoutbox per screen.
     mylayoutbox[s] = awful.widget.layoutbox(s)
     mylayoutbox[s]:buttons(awful.util.table.join(
                            awful.button({ }, 1, function () awful.layout.inc(layouts, 1) end),
@@ -196,7 +229,9 @@ for s = 1, screen.count() do
     mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons)
 
     -- Create the wibox
-    mywibox[s] = awful.wibox({ position = "top", screen = s })
+    mywibox[s] = awful.wibox({ position = "top",
+	--height = 25, 
+	screen = s })
 
     -- Widgets that are aligned to the left
     local left_layout = wibox.layout.fixed.horizontal()
@@ -206,12 +241,19 @@ for s = 1, screen.count() do
 
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
-    right_layout:add(netwidget)
-    right_layout:add(thermalwidget)
-    right_layout:add(batwidget)
+			right_layout:add(spacer)
+    right_layout:add(downwidget)
+    right_layout:add(updownicon)
+	right_layout:add(upwidget)
     right_layout:add(spacer)
     right_layout:add(cpuwidget)
     right_layout:add(spacer)
+	right_layout:add(cpuicon)
+    right_layout:add(thermalwidget)
+	right_layout:add(baticon)
+    right_layout:add(batwidget)
+    right_layout:add(spacer)
+    right_layout:add(volwidget)
     if s == 1 then right_layout:add(wibox.widget.systray()) end
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
@@ -237,8 +279,8 @@ root.buttons(awful.util.table.join(
 
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
-    awful.key({ modkey,           }, "Prior",   awful.tag.viewprev       ),
-    awful.key({ modkey,           }, "Next",  awful.tag.viewnext       ),
+    awful.key({ modkey,           }, "Prior",   awful.tag.viewprev),
+    awful.key({ modkey,           }, "Next",  awful.tag.viewnext),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
 
     awful.key({ modkey,           }, "j",
@@ -302,7 +344,13 @@ globalkeys = awful.util.table.join(
               end),
     -- Menubar
     awful.key({ modkey }, "u", function() menubar.show() end),
-    awful.key({ modkey }, "+", function() awful.util.spawn("dmenu_run") end)
+    awful.key({ modkey }, "+", function() awful.util.spawn("dmenu_run") end),
+    awful.key({ }, "XF86AudioRaiseVolume", function ()
+       awful.util.spawn("amixer set Master 9%+") end),
+    awful.key({ }, "XF86AudioLowerVolume", function ()
+       awful.util.spawn("amixer set Master 9%-") end),
+    awful.key({ }, "XF86AudioMute", function ()
+       awful.util.spawn("amixer sset Master toggle") end)
 )
 
 clientkeys = awful.util.table.join(
@@ -368,6 +416,7 @@ clientbuttons = awful.util.table.join(
     awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
     awful.button({ modkey }, 1, awful.mouse.client.move),
     awful.button({ modkey }, 3, awful.mouse.client.resize))
+
 
 -- Set keys
 root.keys(globalkeys)
@@ -467,5 +516,5 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- {{{Autorun
 awful.util.spawn_with_shell("nm-applet")
-awful.util.spawn_with_shell("sleep 2; volumeicon")
+--awful.util.spawn_with_shell("sleep 2; volumeicon")
 -- }}}
