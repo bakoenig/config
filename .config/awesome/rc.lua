@@ -139,7 +139,8 @@ vicious.register(upwidget, vicious.widgets.net, '<span color="#5785bc">${wlp9s0 
 -- CPU usage widget
 cpuwidget = awful.widget.graph()
 cpuwidget:set_width(50)
-cpuwidget:set_color("linear:0,0:0,20:0,#ff0000:1,#00ff00")
+cpuwidget:set_color("linear:0,0:0,20:0,#cd0000:1,#ffaa00")
+cpuwidget:set_background_color("#474747")
 vicious.register(cpuwidget, vicious.widgets.cpu, "$1")
 cpuwidget:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvt -e htop -s PERCENT_CPU") end)))
 
