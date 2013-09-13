@@ -41,7 +41,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 --beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
-beautiful.init("/home/bernhard/.config/awesome/themes/dunzor/theme.lua")
+beautiful.init("/home/bernhard/.config/awesome/themes/sand/theme.lua")
 -- other themes: crown, dunzor, dust, grey-new, wombat, zenburn
 
 -- This is used later as the default terminal and editor to run.
@@ -127,9 +127,9 @@ separator = wibox.widget.textbox("|")
 
 -- Network usage widget
 downwidget = wibox.widget.textbox()
-vicious.register(downwidget, vicious.widgets.net, '<span color="#75b919">${wlp4s0 down_kb}</span>', 5)
+vicious.register(downwidget, vicious.widgets.net, '<span color="#75b919">${wlp9s0 down_kb}</span>', 5)
 upwidget = wibox.widget.textbox()
-vicious.register(upwidget, vicious.widgets.net, '<span color="#5785bc">${wlp4s0 up_kb}</span>', 5)
+vicious.register(upwidget, vicious.widgets.net, '<span color="#5785bc">${wlp9s0 up_kb}</span>', 5)
 
 -- Memory usage widget
 --memwidget = wibox.widget.textbox()
