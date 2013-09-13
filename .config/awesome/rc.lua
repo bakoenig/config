@@ -41,7 +41,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 --beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
-beautiful.init("/home/bernhard/.config/awesome/themes/sand/theme.lua")
+beautiful.init("/home/bernhard/.config/awesome/themes/dunzor/theme.lua")
 -- other themes: crown, dunzor, dust, grey-new, wombat, zenburn
 
 -- This is used later as the default terminal and editor to run.
@@ -127,9 +127,9 @@ separator = wibox.widget.textbox("|")
 
 -- Network usage widget
 downwidget = wibox.widget.textbox()
-vicious.register(downwidget, vicious.widgets.net, '<span color="#75b919">${wlp9s0 down_kb}</span>', 5)
+vicious.register(downwidget, vicious.widgets.net, '<span color="#75b919">${wlp4s0 down_kb}</span>', 5)
 upwidget = wibox.widget.textbox()
-vicious.register(upwidget, vicious.widgets.net, '<span color="#5785bc">${wlp9s0 up_kb}</span>', 5)
+vicious.register(upwidget, vicious.widgets.net, '<span color="#5785bc">${wlp4s0 up_kb}</span>', 5)
 
 -- Memory usage widget
 --memwidget = wibox.widget.textbox()
@@ -148,19 +148,22 @@ cpuwidget:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.u
 thermalwidget = wibox.widget.textbox() vicious.register(thermalwidget, vicious.widgets.thermal, '<span color="#FF0000"> $1°C</span>', 13, { "coretemp.0", "core"})
 
 -- Battery widget
-batwidget = wibox.widget.textbox() vicious.register(batwidget, vicious.widgets.bat, '<span color="#28619d">$2%</span>', 60, "BAT1")
+batwidget = wibox.widget.textbox() vicious.register(batwidget, vicious.widgets.bat, '<span color="#28619d">$2%</span>', 60, "BAT0")
 
 -- Create a textclock widget
 mytextclock = awful.widget.textclock() mytextclock:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvt -e sh ~/bin/calendar.sh") end)))
 
--- Volume widget
+-- Volume widgets
+mutewidget = wibox.widget.textbox() vicious.register(mutewidget, vicious.widgets.volume, "$2", 1, "Master")
+
 volwidget = awful.widget.progressbar()
 volwidget:set_width(15)
---volwidget:set_height(30)
 volwidget:set_vertical(true)
 volwidget:set_color("linear:0,0:0,20:0,#ffa500:1,#800000")
 vicious.register(volwidget, vicious.widgets.volume, "$1", 1, "Master")
 volwidget:buttons(awful.util.table.join(
+awful.button({ }, 2, function ()
+awful.util.spawn_with_shell("amixer set Master toggle") end),
 awful.button({ }, 3, function ()
 awful.util.spawn_with_shell("urxvt -e alsamixer") end),
 awful.button({ }, 4, function ()
@@ -245,6 +248,7 @@ for s = 1, screen.count() do
 	right_layout:add(baticon)
     right_layout:add(batwidget)
     right_layout:add(spacer)
+	right_layout:add(mutewidget)
     right_layout:add(volwidget)
     if s == 1 then right_layout:add(wibox.widget.systray()) end
     right_layout:add(mytextclock)

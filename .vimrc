@@ -33,15 +33,15 @@ set wildmode=list:longest,full
 set mouse=a
 
 " status line
-set laststatus=2                             	" always show statusbar
-set statusline=  
-set statusline+=%-10.3n\                     	" buffer number
-set statusline+=%f\                          	" filename
-set statusline+=%h%m%r%w                     	" status flags
-set statusline+=\[%{strlen(&ft)?&ft:'none'}] 	" file type
-set statusline+=%=                           	" right align remainder  
-set statusline+=%-14(%l,%c%V%)               	" line, character
-set statusline+=%<%P                         	" file position  
+set laststatus=2 " always show statusbar
+set statusline=
+set statusline+=%-10.3n\ " buffer number
+set statusline+=%f\ " filename
+set statusline+=%h%m%r%w " status flags
+set statusline+=\[%{strlen(&ft)?&ft:'none'}] " file type
+set statusline+=%= " right align remainder
+set statusline+=%-14(%l,%c%V%) " line, character
+set statusline+=%<%P " file position
 
 " spelling
 set spellfile=~/.vim/spellfile.add
@@ -60,11 +60,11 @@ cabbrev be BufExplorerHorizontalSplit
 
 " tab auto completion
 function! Tab_Or_Complete()
-	if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
-		return "\<C-N>"
-	else
-		return "\<Tab>"
-	endif
+if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+return "\<C-N>"
+else
+return "\<Tab>"
+endif
 endfunction
 :inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
 
@@ -78,6 +78,6 @@ let g:Tfx_ViewRule_pdf = 'evince'
 
 "" different themes
 
-colors asu1dark
+"colors asu1dark
 "colors biogoo
-"colors navajo-night
+colors navajo-night

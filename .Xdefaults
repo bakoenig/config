@@ -8,8 +8,13 @@ URxvt.scrollBar:		true
 URxvt.scrollBar_right:	true
 URxvt.scrollcolor: 		#B2B2B2
 URxvt.scrollstyle:		plain
+<<<<<<< HEAD
 URxvt.font:				xft:Dina-9:antialias=false
 URxvt.boldFont:			xft:Dina-9:antialias=false
+=======
+URxvt.font:				xft:Deja Vu Sans Mono-9:antialias=false
+URxvt.boldFont:			xft:Deja Vu Sans Mono-9:antialias=false
+>>>>>>> b22fdf646cd3efc8dae17f7b1faad364cf309f81
 URxvt.cursorBlink:		false
 URxvt.cursorUnderline:	false
 URxvt.cursorColor:		#FFFF00
