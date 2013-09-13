@@ -41,15 +41,8 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 --beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
-<<<<<<< HEAD
-<<<<<<< HEAD
 beautiful.init("/home/bernhard/.config/awesome/themes/dunzor/theme.lua")
-=======
-=======
->>>>>>> 4a631a363e9d2b12eeea587f95fc92c148e48afe
-beautiful.init("/home/bernhard/.config/awesome/themes/sand/theme.lua")
 -- other themes: crown, dunzor, dust, grey-new, wombat, zenburn
->>>>>>> 4a631a363e9d2b12eeea587f95fc92c148e48afe
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
@@ -133,22 +126,11 @@ spacer = wibox.widget.textbox(" ")
 separator = wibox.widget.textbox("|")
 
 -- Network usage widget
-<<<<<<< HEAD
-<<<<<<< HEAD
-netwidget = wibox.widget.textbox()
-vicious.register(netwidget, vicious.widgets.net, '<span color="#FFA500"> Dn ${wlp4s0 down_kb}</span> <span color="#7F9F7F">Up ${wlp4s0 up_kb}</span>', 7)
-=======
-=======
->>>>>>> 4a631a363e9d2b12eeea587f95fc92c148e48afe
 downwidget = wibox.widget.textbox()
-vicious.register(downwidget, vicious.widgets.net, '<span color="#75b919">${wlp9s0 down_kb}</span>', 5)
+vicious.register(downwidget, vicious.widgets.net, '<span color="#75b919">${wlp4s0 down_kb}</span>', 5)
 upwidget = wibox.widget.textbox()
-vicious.register(upwidget, vicious.widgets.net, '<span color="#5785bc">${wlp9s0 up_kb}</span>', 5)
+vicious.register(upwidget, vicious.widgets.net, '<span color="#5785bc">${wlp4s0 up_kb}</span>', 5)
 
-<<<<<<< HEAD
->>>>>>> 4a631a363e9d2b12eeea587f95fc92c148e48afe
-=======
->>>>>>> 4a631a363e9d2b12eeea587f95fc92c148e48afe
 -- Memory usage widget
 --memwidget = wibox.widget.textbox()
 --vicious.register(memwidget, vicious.widgets.mem, " RAM: $1%", 13)
@@ -165,7 +147,7 @@ cpuwidget:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.u
 thermalwidget = wibox.widget.textbox() vicious.register(thermalwidget, vicious.widgets.thermal, '<span color="#FF0000"> $1°C</span>', 13, { "coretemp.0", "core"})
 
 -- Battery widget
-batwidget = wibox.widget.textbox() vicious.register(batwidget, vicious.widgets.bat, '<span color="#28619d">$2%</span>', 60, "BAT1")
+batwidget = wibox.widget.textbox() vicious.register(batwidget, vicious.widgets.bat, '<span color="#28619d">$2%</span>', 60, "BAT0")
 
 -- Create a textclock widget
 mytextclock = awful.widget.textclock() mytextclock:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvt -e sh ~/bin/calendar.sh") end)))
