@@ -35,7 +35,7 @@ theme.border_focus  = "#303030"
 theme.border_marked = "#CC9393"
 
 theme.menu_height = "15"
-theme.menu_width  = "100"
+theme.menu_width  = "150"
 
 theme.taglist_squares_sel   = themedir .. "/taglist/squaref.png"
 theme.taglist_squares_unsel = themedir .. "/taglist/square.png"
