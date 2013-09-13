@@ -40,7 +40,11 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
+<<<<<<< HEAD
     <name>Mist-Ashen</name>
+=======
+    <name>Clearlooks</name>
+>>>>>>> a86c250f31515b23ba2af59cc6af52b3a0145d4f
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
