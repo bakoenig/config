@@ -1,0 +1,13 @@
+# settings
+
+# keyboard settings moved to .xinitrc
+
+# wallpaper
+#nitrogen --restore &
+#xfdesktop &
+
+# applications
+batti &
+volumeicon &
+nm-applet &
+tint2 &
