@@ -86,7 +86,6 @@ nnoremap , :
 nnoremap Q gqap
 " easy access to extensions
 cabbrev mru Mru
-cabbrev be BufExplorerHorizontalSplit
 
 " tab auto completion
 function! Tab_Or_Complete()
