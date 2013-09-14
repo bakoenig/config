@@ -148,7 +148,7 @@ cpuwidget:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.u
 thermalwidget = wibox.widget.textbox() vicious.register(thermalwidget, vicious.widgets.thermal, '<span color="#FF0000"> $1°C</span>', 13, { "coretemp.0", "core"})
 
 -- Battery widget
-batwidget = wibox.widget.textbox() vicious.register(batwidget, vicious.widgets.bat, '<span color="#28619d">$2%</span>', 60, "BAT0")
+batwidget = wibox.widget.textbox() vicious.register(batwidget,vicious.widgets.bat,'<span color="#28619d">$2$1%</span>',60,"BAT1")
 
 -- Create a textclock widget
 mytextclock = awful.widget.textclock() mytextclock:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvt -e sh ~/bin/calendar.sh") end)))
