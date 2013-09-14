@@ -20,7 +20,7 @@ set tabstop=4
 set hidden
 
 " configure search
-set hlsearch
+set nohlsearch
 set ignorecase
 set smartcase
 set incsearch
