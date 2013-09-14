@@ -5,7 +5,6 @@ DIR="/run/media/bkoenig/Rotate"
 
 
 rsync -av /home/bkoenig/Documents $DIR/bkoenig
-rsync -av /home/bkoenig/math $DIR/bkoenig
 rsync -av /home/bkoenig/Public $DIR/bkoenig
 
-rsync -av /home/bkoenig/.thunderbird $DIR/bkoenig
+#rsync -av /home/bkoenig/.thunderbird $DIR/bkoenig
