@@ -248,8 +248,8 @@ for s = 1, screen.count() do
 	right_layout:add(baticon)
     right_layout:add(batwidget)
     right_layout:add(spacer)
-	right_layout:add(mutewidget)
     right_layout:add(volwidget)
+	right_layout:add(mutewidget)
     if s == 1 then right_layout:add(wibox.widget.systray()) end
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
