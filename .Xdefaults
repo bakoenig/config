@@ -12,6 +12,7 @@ URxvt.cursorBlink:	  	false
 URxvt.cursorUnderline:	false
 URxvt.cursorColor:	  	#FFFF00
 URxvt.iconFile:		    /usr/share/icons/Faenza/apps/32/xterm.png
+URxvt.font:				9x15,xft:dina
 
 !colors
 URxvt.background:	black
