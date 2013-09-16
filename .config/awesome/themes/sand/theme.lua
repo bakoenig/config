@@ -17,7 +17,7 @@ config = awful.util.getdir("config")
 themedir = config .. "/themes/sand"
 theme.wallpaper = themedir .. "/background3.jpg"
 
-theme.font      = "Ubuntu Sans 10"
+theme.font      = "Droid Sans 10"
 
 theme.fg_normal = "#D5D5D5"
 theme.fg_focus  = "#a86500"
