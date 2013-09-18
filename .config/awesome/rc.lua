@@ -145,7 +145,7 @@ vicious.register(cpuwidget, vicious.widgets.cpu, "$1")
 cpuwidget:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvt -e htop -s PERCENT_CPU") end)))
 
 -- CPU temperature
-thermalwidget = wibox.widget.textbox() vicious.register(thermalwidget, vicious.widgets.thermal, '<span color="#FF0000"> $1°C</span>', 13, { "coretemp.0", "core"})
+thermalwidget = wibox.widget.textbox() vicious.register(thermalwidget, vicious.widgets.thermal, '<span color="#FF0000"> $1°C </span>', 13, { "coretemp.0", "core"})
 
 -- Battery widget
 batwidget = wibox.widget.textbox() vicious.register(batwidget,vicious.widgets.bat,'<span color="#4488cf">$2$1</span>',60,"BAT1")
@@ -250,6 +250,7 @@ for s = 1, screen.count() do
     right_layout:add(spacer)
     right_layout:add(volwidget)
 	right_layout:add(mutewidget)
+	right_layout:add(spacer)
     if s == 1 then right_layout:add(wibox.widget.systray()) end
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
