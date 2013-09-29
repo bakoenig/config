@@ -123,7 +123,7 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 
 -- Separators
 spacer = wibox.widget.textbox("  ")
-separator = wibox.widget.textbox("|")
+separator = wibox.widget.textbox(" | ")
 
 -- Network usage widget
 downwidget = wibox.widget.textbox()
