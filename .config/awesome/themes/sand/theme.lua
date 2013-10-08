@@ -25,6 +25,7 @@ theme.fg_urgent = "#990000"
 theme.bg_normal = "#151515f0"
 theme.bg_focus  = "#151515f0"
 theme.bg_urgent = "#151515aa"
+theme.bg_wibox  = "#323232"
 
 theme.border_width  = "1"
 theme.border_width_panel  = "1"
