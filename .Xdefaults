@@ -11,7 +11,7 @@ URxvt.scrollstyle:	  	plain
 URxvt.cursorBlink:	  	false
 URxvt.cursorUnderline:	false
 URxvt.cursorColor:	  	#FFFF00
-URxvt.iconFile:		    /usr/share/icons/Faenza/apps/32/xterm.png
+URxvt.iconFile:		    /usr/share/icons/gnome/32x32/apps/terminal.png
 URxvt.font:				xft:terminus-9
 
 !colors
