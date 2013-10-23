@@ -108,7 +108,9 @@ myawesomemenu = {
 }
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "open terminal", terminal }
+                                    { "Open Terminal", terminal },
+									{ "Chromium", "chromium" },
+									{ "Firefox", "firefox" }
                                   }
                         })
 
@@ -192,14 +194,7 @@ mytasklist.buttons = awful.util.table.join(
                      awful.button({ }, 2, function (c)
                                                   c:kill()
                                           end),
-                     awful.button({ }, 3, function ()
-                                              if instance then
-                                                  instance:hide()
-                                                  instance = nil
-                                              else
-                                                  instance = awful.menu.clients({ width=250 })
-                                              end
-                                          end)
+                     awful.button({ }, 3, function () mymainmenu:toggle() end)
 					  )
 
 for s = 1, screen.count() do
@@ -321,7 +316,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
-    -- Show menu on modkey + "-"
+    -- Show menu on modkey "-"
     awful.key({ modkey,		  }, "-", function () instance = awful.menu.clients({ width=250 }) end),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
