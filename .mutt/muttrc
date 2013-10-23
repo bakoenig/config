@@ -13,6 +13,7 @@ set imap_delim_chars='/'
 unset record
 set mailcap_path = ~/.mutt/mailcap
 set editor = "vim"
+set status_format="-%r-+(%v) %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]---(%s/%S)-%>-(%P)---"
 
 # format pager view
 ignore "Authentication-Results:"
@@ -33,7 +34,6 @@ set sort=threads
 set sort_aux=last-date-received
 set date_format="%b-%d %R"
 set index_format="%2C | %Z [%d] %-30.30F (%-4.4c) %s"
-set status_format="Mutt <%f> [%M/%m] [Size: %l | New: %n]"
 
 # import source
 source ~/.mutt/colors
