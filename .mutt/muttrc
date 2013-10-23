@@ -1,0 +1,42 @@
+# Basic config
+set imap_check_subscribed
+set mail_check = 120
+set timeout = 300
+set imap_keepalive = 300
+set header_cache = ~/.mutt/cache/headers
+set message_cachedir = ~/.mutt/cache/bodies
+set certificate_file = ~/.mutt/certificates
+set move = no
+set include
+set auto_tag = yes
+set imap_delim_chars='/'
+unset record
+set mailcap_path = ~/.mutt/mailcap
+set editor = "vim"
+
+# format pager view
+ignore "Authentication-Results:"
+ignore "DomainKey-Signature:"
+ignore "DKIM-Signature:"
+hdr_order Date From To Cc
+alternative_order text/plain text/enriched text/html
+auto_view text/html
+set pager_index_lines = 10
+set pager_context = 3
+set pager_stop
+set menu_scroll
+set tilde
+unset markers
+
+# format index view
+set sort=threads
+set sort_aux=last-date-received
+set date_format="%b-%d %R"
+set index_format="%2C | %Z [%d] %-30.30F (%-4.4c) %s"
+set status_format="Mutt <%f> [%M/%m] [Size: %l | New: %n]"
+
+# import source
+source ~/.mutt/colors
+source ~/.mutt/mailboxes
+source ~/.mutt/bindings
+source ~/.mutt/macros
