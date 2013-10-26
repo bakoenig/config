@@ -1,9 +1,15 @@
+#----------#
+# Bindings #
+#----------#
+
 bind index /  		search-reverse
 bind index <esc>/ 	search
 bind index gg 		first-entry
 bind index G  		last-entry
+bind index <esc>M 	current-middle
 
 bind pager i  		exit
+bind pager T 		noop
 bind pager t 		noop
 bind pager t  		toggle-quoted
 bind pager /  		search
@@ -22,3 +28,11 @@ bind editor ^T 				complete
 bind editor <space> 		noop 
 
 bind browser $		 		check-new
+
+#--------#
+# Macros #
+#--------#
+
+macro index 		t 		<esc>V<esc>M "collapse and center entry"
+
+macro index,pager 	\cb 	":unset wait_key; set pipe_decode\n|w3m\n: set wait_key; unset pipe_decode\n" "call w3m to extract URLs" 
