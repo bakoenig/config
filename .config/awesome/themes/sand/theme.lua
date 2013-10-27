@@ -19,6 +19,7 @@ theme.wallpaper = themedir .. "/background.jpg"
 
 theme.font      = "Droid Sans 10"
 
+-- sand panel
 theme.fg_normal = "#000000"
 theme.fg_focus  = "#a52a2a"
 theme.fg_urgent = "#990000"
@@ -26,6 +27,15 @@ theme.bg_normal = "#aea79f"
 theme.bg_focus  = "#aea79f"
 theme.bg_urgent = "#151515"
 theme.bg_wibox  = "#aea79f"
+
+-- dark panel
+--theme.fg_normal = "#D5D5D5"
+--theme.fg_focus  = "#a86500"
+--theme.fg_urgent = "#990000"
+--theme.bg_normal = "#151515f0"
+--theme.bg_focus  = "#151515f0"
+--theme.bg_urgent = "#151515aa"
+--theme.bg_wibox  = "#323232"
 
 theme.border_width  = "1"
 theme.border_width_panel  = "1"

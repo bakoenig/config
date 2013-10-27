@@ -18,14 +18,14 @@ text/*;						cat; copiousoutput; edit=$VISUAL %s
 message/rfc822;				cat; copiousoutput; edit=$VISUAL %s
 
 application/msword;			catdoc %s; copiousoutput
-application/vnd.msword;		word2text %s; copiousoutput
+application/vnd.msword;		catdoc %s; copiousoutput
 
-application/excel;			excel2text %s; copiousoutput
-application/msexcel;		excel2text %s; copiousoutput
-application/vnd.ms-excel;	excel2text %s; copiousoutput
-application/x-excel;		excel2text %s; copiousoutput
-application/x-msexcel;		excel2text %s; copiousoutput
-application/ms-Excel;		excel2text %s; copiousoutput
+application/excel;			catoc %s; copiousoutput
+application/msexcel;		catoc %s; copiousoutput
+application/vnd.ms-excel;	catoc %s; copiousoutput
+application/x-excel;		catoc %s; copiousoutput
+application/x-msexcel;		catoc %s; copiousoutput
+application/ms-Excel;		catoc %s; copiousoutput
 
 application/vnd.ms-powerpoint;	catppt %s; copiousoutput
 application/x-mspowerpoint;		catppt %s; copiousoutput
