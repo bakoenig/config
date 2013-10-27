@@ -21,7 +21,7 @@ theme.font      = "Droid Sans 10"
 
 -- sand panel
 theme.fg_normal = "#000000"
-theme.fg_focus  = "#a52a2a"
+theme.fg_focus  = "#800032"
 theme.fg_urgent = "#990000"
 theme.bg_normal = "#aea79f"
 theme.bg_focus  = "#aea79f"
