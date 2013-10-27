@@ -17,39 +17,20 @@ text/html;					w3m -dump %s; nametemplate=%s.html; copiousoutput
 text/*;						cat; copiousoutput; edit=$VISUAL %s
 message/rfc822;				cat; copiousoutput; edit=$VISUAL %s
 
-application/msword;			mutt_bgrun qvpview %s; test=RunningX
 application/msword;			catdoc %s; copiousoutput
-application/vnd.msword;		mutt_bgrun qvpview %s; test=RunningX
 application/vnd.msword;		word2text %s; copiousoutput
 
-application/excel;			mutt_bgrun qvpview %s; test=RunningX
 application/excel;			excel2text %s; copiousoutput
-application/msexcel;		mutt_bgrun qvpview %s; test=RunningX
 application/msexcel;		excel2text %s; copiousoutput
-application/vnd.ms-excel;	mutt_bgrun qvpview %s; test=RunningX
 application/vnd.ms-excel;	excel2text %s; copiousoutput
-application/x-excel;		mutt_bgrun qvpview %s; test=RunningX
 application/x-excel;		excel2text %s; copiousoutput
-application/x-msexcel;		mutt_bgrun qvpview %s; test=RunningX
 application/x-msexcel;		excel2text %s; copiousoutput
-application/ms-Excel;		mutt_bgrun qvpview %s; test=RunningX
 application/ms-Excel;		excel2text %s; copiousoutput
 
-application/vnd.ms-powerpoint;	mutt_bgrun qvpview %s; test=RunningX
-application/vnd.ms-powerpoint;	ppt2text %s; copiousoutput
-application/x-mspowerpoint;	mutt_bgrun qvpview %s; test=RunningX
-application/x-mspowerpoint;	ppt2text %s; copiousoutput
-application/ppt;			mutt_bgrun qvpview %s; test=RunningX
-application/ppt;			ppt2text %s; copiousoutput
+application/vnd.ms-powerpoint;	catppt %s; copiousoutput
+application/x-mspowerpoint;		catppt %s; copiousoutput
+application/ppt;				catppt %s; copiousoutput
 
-application/pdf;			mutt_bgrun acroread +useFrontEndProgram %s; test=RunningX
-application/pdf;			pdftotext %s -; copiousoutput
+application/pdf;				pdftotext %s -; copiousoutput
 
-application/postscript;		mutt_bgrun ghostview %s; test=RunningX
-
-application/rtf;			mutt_bgrun qvpview %s; test=RunningX
-application/rtf;			rtf2text %s; copiousoutput
-
-application/ms-tnef;		tnef -w %s
-
-image/*;					gpicview %s; copiousoutput
+image/*;						gpicview %s; copiousoutput

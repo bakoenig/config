@@ -30,7 +30,7 @@ set tilde
 unset markers
 
 # Format index view
-set sort=threads
+set sort=reverse-threads
 set uncollapse_jump
 set strict_threads
 set sort_aux=last-date-received
