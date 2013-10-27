@@ -30,9 +30,9 @@ set tilde
 unset markers
 
 # Format index view
-set sort=reverse-threads
-set uncollapse_jump
+set narrow_tree
 set strict_threads
+set sort=reverse-threads
 set sort_aux=last-date-received
 set date_format="%b-%d %R"
 set index_format="%2C | %Z [%D] %-30.30F (%-4.4c) %s"
