@@ -49,7 +49,7 @@ theme.menu_height = "15"
 theme.menu_width  = "150"
 
 theme.taglist_squares_sel   = themedir .. "/taglist/squaref.png"
-theme.taglist_squares_unsel = themedir .. "/taglist/square.png"
+theme.taglist_squares_unsel = themedir .. "/taglist/squareb.png"
 theme.taglist_squares_resize = "false"
 
 theme.awesome_icon           	= "/usr/share/awesome/themes/zenburn/awesome-icon.png"
