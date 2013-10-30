@@ -2,8 +2,6 @@
 # Bindings #
 #----------#
 
-bind index /  		search-reverse
-bind index <esc>/ 	search
 bind index gg 		first-entry
 bind index G  		last-entry
 bind index <esc>M 	current-middle
@@ -22,6 +20,7 @@ bind index,pager R 			group-reply
 bind index,pager p 			noop
 bind index,pager <left>		previous-thread
 bind index,pager <right>	next-thread
+bind index,pager N 			noop
 
 bind editor <Tab> 			complete-query
 bind editor ^T 				complete
