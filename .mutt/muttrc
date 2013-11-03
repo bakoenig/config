@@ -8,11 +8,13 @@ set message_cachedir = ~/.mutt/cache/bodies
 set certificate_file = ~/.mutt/certificates
 set move = no
 set include
+set fast_reply
 set auto_tag = yes
 set imap_delim_chars='/'
-unset record
 set mailcap_path = ~/.mutt/mailcap
 set editor = "vim"
+unset record
+unset mark_old
 set status_format="-%r-+(%v) %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]---(%P)-%>-(%s/%S)---"
 
 # Format pager view
@@ -25,7 +27,6 @@ auto_view text/html
 set pager_index_lines = 10
 set pager_context = 3
 set pager_stop
-set menu_scroll
 set tilde
 unset markers
 
@@ -38,7 +39,12 @@ set sort_aux=last-date-received
 set date_format="%b-%d %R"
 set index_format="%2C | %Z %-30.30F (%-4.4c) [%D] %s"
 
+# Format aliases
+set alias_file=~/.mutt/aliases
+set alias_format="%4n %2f %t %-20a %r"
+
 # Import source
+source ~/.mutt/aliases
 source ~/.mutt/bindings
 source ~/.mutt/colors
 source ~/.mutt/mailboxes

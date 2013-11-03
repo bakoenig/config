@@ -22,8 +22,6 @@ bind index,pager <left>		previous-thread
 bind index,pager <right>	next-thread
 bind index,pager N 			noop
 
-bind editor <Tab> 			complete-query
-bind editor ^T 				complete
 bind editor <space> 		noop 
 
 bind browser $		 		check-new
