@@ -44,7 +44,7 @@ alias tsftp='sftp math.toronto.edu'
 
 clear
 echo
-archey
+archey3
 #echo "\e["36mKernel: `uname -r`
 #echo "\e["32mGNOME: `gnome-about --gnome-version|head -n 1|awk '{ print $2 }'`
 echo
