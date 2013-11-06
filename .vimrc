@@ -56,10 +56,9 @@ endfunction
 nnoremap + :bnext <CR>
 nnoremap - :bprevious <CR>
 nnoremap , :
+cabbrev mru Mru
 "reflow
 nnoremap Q gqap
-" easy access to mru
-cabbrev mru Mru
 
 "" latex-suite
 
@@ -68,6 +67,7 @@ let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_CompileRule_pdf = 'pdflatex'
 let g:Tex_ViewRule_dvi = 'evince'
 let g:Tfx_ViewRule_pdf = 'evince'
+map <f2> :w<cr><leader>ll
 
 "" different themes
 
