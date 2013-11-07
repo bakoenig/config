@@ -1,24 +1,24 @@
 "" general settings
 
-filetype plugin indent on
+set nocompatible
 set autoindent
 set nobackup
 set backspace=2
 set guioptions=acei
 set wildmenu
 set wildmode=list:longest,full
+set whichwrap+=<,>,[,]
 set mouse=a
 set hidden 
-set nocompatible
 set autoindent
 set nobackup
 set noswapfile
 set backspace=2
 set guioptions=acei
 set tabstop=4
-set ruler
 set linebreak
 syntax on
+filetype plugin indent on
 
 " configure search
 set nohlsearch
