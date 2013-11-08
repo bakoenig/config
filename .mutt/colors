@@ -8,15 +8,12 @@
   color error       brightred     	default
   color message     brightyellow  	default
 
-#
 # message states
-#
 # order matters here since some states override others
-#
 
-# messages to me
-#uncolor index "~P"
-#  color index brightblack default "~P"
+# messages from me
+uncolor index "~P"
+  color index brightblack default "~P"
 
 # threads containing new messages
 uncolor index "~(~N)"

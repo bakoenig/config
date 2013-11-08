@@ -46,5 +46,5 @@ set alias_format="%4n %2f %t %-20a %r"
 # Import source
 source ~/.mutt/aliases
 source ~/.mutt/bindings
-source ~/.mutt/colors
+source ~/.mutt/color2
 source ~/.mutt/mailboxes
