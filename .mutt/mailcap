@@ -1,21 +1,8 @@
 # mailcap - MIME configuration file
 
-text/html;					w3m %s; nametemplate=%s.html
-text/html;					w3m -dump %s; nametemplate=%s.html; copiousoutput
-
-# Add capability to edit attachments from the compose menu.
-#
-# Mutt can only edit attachments if they have a mailcap edit entry.
-# (This would be a good thing to fix.)  However, a mailcap entry
-# apparently must include the display function--it can't be defaulted.
-# The combination "cat; copiousoutput" comes close to the default in
-# that in invokes the default pager on the output of cat.  However,
-# there is apparently no way to specify the default editor--a shell
-# environment variable such as $VISUAL or $EDITOR is as close as we can
-# get.
-
-text/*;						cat; copiousoutput; edit=$VISUAL %s
-message/rfc822;				cat; copiousoutput; edit=$VISUAL %s
+text/html;      	w3m -I %{charset} -dump %s; nametemplate=%s.html; copiousoutput
+text/*;				cat; copiousoutput; edit=$VISUAL %s
+message/rfc822;		cat; copiousoutput; edit=$VISUAL %s
 
 application/msword;			catdoc %s; copiousoutput
 application/vnd.msword;		catdoc %s; copiousoutput

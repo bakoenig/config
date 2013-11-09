@@ -13,6 +13,7 @@ set auto_tag = yes
 set imap_delim_chars='/'
 set mailcap_path = ~/.mutt/mailcap
 set editor = "vim"
+set status_on_top
 unset record
 unset mark_old
 set status_format="-%r-+(%v) %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]---(%P)-%>-(%s/%S)---"
@@ -24,7 +25,7 @@ ignore "DKIM-Signature:"
 hdr_order Date From To Cc
 alternative_order text/plain text/enriched text/html
 auto_view text/html
-set pager_index_lines = 10
+set pager_index_lines = 15
 set pager_context = 3
 set pager_stop
 set tilde
@@ -37,7 +38,7 @@ set strict_threads
 set sort=threads
 set sort_aux=last-date-received
 set date_format="%b-%d %R"
-set index_format="%2C | %Z %-30.30F (%-4.4c) [%D] %s"
+set index_format="%4C | %Z %-30.30F (%-4.4c) [%D] %s"
 
 # Format aliases
 set alias_file=~/.mutt/aliases

@@ -53,21 +53,25 @@ endfunction
 "" keybindings
 
 " some bindings in normal mode
-nnoremap + :bnext <CR>
-nnoremap - :bprevious <CR>
-nnoremap , :
-cabbrev mru Mru
-"reflow
-nnoremap Q gqap
+nnoremap 	+ 		:bnext <CR>
+nnoremap 	- 		:bprevious <CR>
+nnoremap 	, 		:
+nnoremap 	<up>	gk
+nnoremap 	<down>	gj
+inoremap 	<up>	<C-o>gk
+inoremap 	<down>	<C-o>gj
+cabbrev 	mru 	Mru
+nnoremap 	Q 		gqap
 
 "" latex-suite
 
 let g:tex_flavor = "latex"
 let g:Tex_DefaultTargetFormat = 'pdf'
-let g:Tex_CompileRule_pdf = 'pdflatex'
+let g:Tex_CompileRule_pdf = 'rubber --pdf'
 let g:Tex_ViewRule_dvi = 'evince'
 let g:Tfx_ViewRule_pdf = 'evince'
 map <f2> :w<cr><leader>ll
+imap <f2> <esc>:w<cr><leader>ll
 
 "" different themes
 
