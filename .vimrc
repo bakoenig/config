@@ -40,6 +40,8 @@ set statusline+=%<%P                         	" file position
 " spelling
 set spellfile=~/.vim/spellfile.add
 
+"" keybindings
+
 " tab auto completion
 function! Tab_Or_Complete()
 	if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
@@ -49,8 +51,6 @@ function! Tab_Or_Complete()
 	endif
 endfunction
 :inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
-
-"" keybindings
 
 " some bindings in normal mode
 nnoremap 	+ 		:bnext <CR>
@@ -62,16 +62,6 @@ inoremap 	<up>	<C-o>gk
 inoremap 	<down>	<C-o>gj
 cabbrev 	mru 	Mru
 nnoremap 	Q 		gqap
-
-"" latex-suite
-
-let g:tex_flavor = "latex"
-let g:Tex_DefaultTargetFormat = 'pdf'
-let g:Tex_CompileRule_pdf = 'rubber --pdf'
-let g:Tex_ViewRule_dvi = 'evince'
-let g:Tfx_ViewRule_pdf = 'evince'
-map <f2> :w<cr><leader>ll
-imap <f2> <esc>:w<cr><leader>ll
 
 "" different themes
 
