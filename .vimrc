@@ -17,6 +17,7 @@ set backspace=2
 set guioptions=acei
 set tabstop=4
 set linebreak
+set autochdir
 syntax on
 filetype plugin indent on
 
@@ -42,7 +43,7 @@ set spellfile=~/.vim/spellfile.add
 
 "" keybindings
 
-" tab auto completion
+" auto completion with tab key
 function! Tab_Or_Complete()
 	if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
 		return "\<C-N>"
