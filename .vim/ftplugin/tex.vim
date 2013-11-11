@@ -9,7 +9,7 @@ autocmd QuickFixCmdPost    l* nested lwindow
 "some keybindings
 map <f2> 		:w<cr>:make<cr><cr>
 imap <f2> 		<esc>:w<cr>:make<cr><cr>
-nnoremap <f3> 	:!evince %:r.pdf &<CR><CR>
+nnoremap <f3> 	:!evince %:r.pdf &<cr><cr>
 
 "these bindings make typing easier on german keyboard
 inoremap ß \

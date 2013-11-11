@@ -1,0 +1,49 @@
+snippet env "Environment" !b
+\begin{${1:environment}}
+	$2
+\end{$1}
+
+$0
+endsnippet
+
+snippet claim "Claim" b
+\begin{claim}
+    $1
+\end{claim}
+	\label{clm:$2}
+
+$0
+endsnippet
+
+snippet theorem "Theorem" b
+\begin{theorem}
+    $1
+\end{theorem}
+	\label{thm:$2}
+
+$0
+endsnippet
+
+snippet question "Question" b
+\begin{question}
+   	$1
+\end{question}
+	\label{qu:$2}
+
+$0
+endsnippet
+
+snippet def "Definition" b
+\begin{definition}
+	$1
+\end{definition}
+	\label{def:$2}
+
+$0
+endsnippet
+
+snippet proof "Proof" b
+\begin{proof}
+	$0
+\end{proof}
+endsnippet

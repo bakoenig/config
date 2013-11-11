@@ -7,7 +7,7 @@ set backspace=2
 set guioptions=acei
 set wildmenu
 set wildmode=list:longest,full
-set whichwrap+=<,>,[,]
+set whichwrap+=h,l,<,>,[,]
 set mouse=a
 set hidden 
 set autoindent
@@ -57,12 +57,23 @@ endfunction
 nnoremap 	+ 		:bnext <CR>
 nnoremap 	- 		:bprevious <CR>
 nnoremap 	, 		:
-nnoremap 	<up>	gk
-nnoremap 	<down>	gj
-inoremap 	<up>	<C-o>gk
-inoremap 	<down>	<C-o>gj
-cabbrev 	mru 	Mru
+"nnoremap 	<up>	gk
+"nnoremap 	<down>	gj
+"inoremap 	<up>	<C-o>gk
+"inoremap 	<down>	<C-o>gj
+nnoremap 	<C-p>	:Mru 
 nnoremap 	Q 		gqap
+let g:UltiSnipsExpandTrigger = '<f5>'
+
+"remapping arrow keys
+noremap <up> <NOP>
+noremap <down> <NOP>
+noremap <left> <NOP>
+noremap <right> <NOP>
+inoremap <up> <NOP>
+inoremap <down> <NOP>
+inoremap <left> <NOP>
+inoremap <right> <NOP>
 
 "" different themes
 
