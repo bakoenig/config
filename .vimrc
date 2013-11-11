@@ -19,17 +19,18 @@ set tabstop=4
 set linebreak
 set autochdir
 syntax on
-filetype plugin indent on
 
 "vundle config
 filetype off
-set rtp+=~/.vim/vundle.git/ 
+set rtp+=~/.vim/vundle.git
 call vundle#rc()
 Bundle 'gmarik/vundle'
-"Bundle ''Lokaltog/powerline'
+Bundle 'Lokaltog/powerline'
+"Bundle 'vim-scripts/vim-airline'
 Bundle 'vim-scripts/mru.vim'
 Bundle 'vim-scripts/UltiSnips'
 Bundle 'vim-scripts/Colour-Sampler-Pack'
+filetype plugin indent on
 
 " configure search
 set nohlsearch
