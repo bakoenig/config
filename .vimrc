@@ -25,8 +25,8 @@ filetype off
 set rtp+=~/.vim/vundle.git
 call vundle#rc()
 Bundle 'gmarik/vundle'
-Bundle 'Lokaltog/powerline'
-"Bundle 'vim-scripts/vim-airline'
+Bundle 'bling/vim-airline'
+Bundle 'bling/vim-bufferline'
 Bundle 'vim-scripts/mru.vim'
 Bundle 'vim-scripts/UltiSnips'
 Bundle 'vim-scripts/Colour-Sampler-Pack'
@@ -48,6 +48,7 @@ set laststatus=2                             	" always show statusbar
 "set statusline+=%=                           	" right align remainder  
 "set statusline+=%-14(%l,%c%V%)               	" line, character
 "set statusline+=%<%P                         	" file position  
+let g:airline_section_warning='%{getcwd()}'
 
 " spelling
 set spellfile=~/.vim/spellfile.add
