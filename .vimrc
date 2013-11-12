@@ -2,6 +2,7 @@
 set nocompatible
 set rtp+=~/.vim/vundle.git
 call vundle#rc()
+
 Bundle 'gmarik/vundle'
 Bundle 'bling/vim-airline'
 Bundle 'ervandew/supertab'
