@@ -1,6 +1,16 @@
-"" general settings
-
+"" import plugins
 set nocompatible
+set rtp+=~/.vim/vundle.git
+call vundle#rc()
+Bundle 'gmarik/vundle'
+Bundle 'bling/vim-airline'
+Bundle 'ervandew/supertab'
+Bundle 'bling/vim-bufferline'
+Bundle 'vim-scripts/mru.vim'
+Bundle 'SirVer/ultisnips'
+Bundle 'flazz/vim-colorschemes'
+
+"" general settings
 set autoindent
 set nobackup
 set backspace=2
@@ -19,65 +29,31 @@ set tabstop=4
 set linebreak
 set autochdir
 syntax on
-
-"vundle config
-filetype off
-set rtp+=~/.vim/vundle.git
-call vundle#rc()
-Bundle 'gmarik/vundle'
-Bundle 'bling/vim-airline'
-Bundle 'bling/vim-bufferline'
-Bundle 'vim-scripts/mru.vim'
-Bundle 'vim-scripts/UltiSnips'
-Bundle 'vim-scripts/Colour-Sampler-Pack'
 filetype plugin indent on
 
-" configure search
+"" configure search
 set nohlsearch
 set ignorecase
 set smartcase
 set incsearch
 
-" status line
-set laststatus=2                             	" always show statusbar  
-"set statusline=  
-"set statusline+=%-10.3n\                     	" buffer number  
-"set statusline+=%f\                          	" filename   
-"set statusline+=%h%m%r%w                     	" status flags  
-"set statusline+=\[%{strlen(&ft)?&ft:'none'}] 	" file type  
-"set statusline+=%=                           	" right align remainder  
-"set statusline+=%-14(%l,%c%V%)               	" line, character
-"set statusline+=%<%P                         	" file position  
-let g:airline_section_warning='%{getcwd()}'
-
-" spelling
+"" spelling
 set spellfile=~/.vim/spellfile.add
 
 "" keybindings
-
-" auto completion with tab key
-function! Tab_Or_Complete()
-	if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
-		return "\<C-N>"
-	else
-		return "\<Tab>"
-	endif
-endfunction
-:inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
 
 " some bindings in normal mode
 nnoremap 	+ 		:bnext <CR>
 nnoremap 	- 		:bprevious <CR>
 nnoremap 	, 		:
+nnoremap 	<C-p>	:Mru 
+nnoremap 	Q 		gqap
+
+" remapping arrow keys
 "nnoremap 	<up>	gk
 "nnoremap 	<down>	gj
 "inoremap 	<up>	<C-o>gk
 "inoremap 	<down>	<C-o>gj
-nnoremap 	<C-p>	:Mru 
-nnoremap 	Q 		gqap
-let g:UltiSnipsExpandTrigger = '<f5>'
-
-"remapping arrow keys
 noremap <up> <NOP>
 noremap <down> <NOP>
 noremap <left> <NOP>
