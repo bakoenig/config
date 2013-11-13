@@ -4,12 +4,11 @@ set rtp+=~/.vim/vundle.git
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'bling/vim-airline'
 Bundle 'ervandew/supertab'
-Bundle 'bling/vim-bufferline'
 Bundle 'vim-scripts/mru.vim'
 Bundle 'SirVer/ultisnips'
 Bundle 'flazz/vim-colorschemes'
+Bundle 'itchyny/lightline.vim'
 
 "" general settings
 set autoindent
