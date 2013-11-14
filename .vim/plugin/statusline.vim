@@ -33,7 +33,7 @@ set laststatus=2                             	" always show statusbar
 "set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
 
 let g:lightline = {
-      \ 'colorscheme': 'jellybeans',
+      \ 'colorscheme': 'solarized',
       \ }
 let g:lightline.active = {
 		    \ 'left': [ [ 'mode', 'paste' ],
