@@ -8,7 +8,7 @@ Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/mru.vim'
 Bundle 'SirVer/ultisnips'
 Bundle 'flazz/vim-colorschemes'
-Bundle 'itchyny/lightline.vim'
+"Bundle 'itchyny/lightline.vim'
 
 "" general settings
 set autoindent
