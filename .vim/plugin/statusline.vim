@@ -15,7 +15,7 @@ set laststatus=2                             	" always show statusbar
 
 "" a condensed statusline
 "
-let &statusline=' %F  %h%w%r%m  %Y [%{&fileformat}][%{strlen(&fenc)?&fenc:&enc}] %= (%l,%c) (%P) '
+let &statusline=' %F  %h%w%r%m  %Y [%{&fileformat}][%{strlen(&fenc)?&fenc:&enc}] %= (%2.l,%2.c) (%P) '
 
 "" lightline config
 "

@@ -8,7 +8,6 @@ Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/mru.vim'
 Bundle 'SirVer/ultisnips'
 Bundle 'flazz/vim-colorschemes'
-"Bundle 'itchyny/lightline.vim'
 
 "" general settings
 set autoindent
@@ -43,11 +42,11 @@ set spellfile=~/.vim/spellfile.add
 "" keybindings
 
 " some bindings in normal mode
-nnoremap 	+ 		:bnext <CR>
-nnoremap 	- 		:bprevious <CR>
-nnoremap 	, 		:
-nnoremap 	<C-p>	:Mru 
-nnoremap 	Q 		gqap
+nnoremap 	+ 			:bnext <CR>
+nnoremap 	- 			:bprevious <CR>
+nnoremap 	, 			:
+nnoremap 	<leader>o	:Mru 
+nnoremap 	Q 			gqap
 
 " remapping arrow keys
 "nnoremap 	<up>	gk
