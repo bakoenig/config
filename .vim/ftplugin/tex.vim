@@ -6,6 +6,9 @@ exec "setlocal makeprg=make\\ -f\\ ~/bin/latex.mk\\ " . substitute(bufname("%"),
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
 
+"include :,-, and _ in tab completion
+set iskeyword+=:,-,_
+
 "some keybindings
 map <f2> 		:w<cr>:make<cr><cr>
 imap <f2> 		<esc>:w<cr>:make<cr><cr>
