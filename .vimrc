@@ -16,7 +16,7 @@ set backspace=2
 set guioptions=acei
 set wildmenu
 set wildmode=list:longest,full
-set whichwrap+=h,l,<,>,[,]
+set whichwrap+=<,>,[,]
 set mouse=a
 set hidden 
 set autoindent
@@ -35,6 +35,10 @@ set nohlsearch
 set ignorecase
 set smartcase
 set incsearch
+
+"" status line
+set laststatus=2
+let &statusline=' %F  %h%w%r%m  %Y [%{&fileformat}][%{strlen(&fenc)?&fenc:&enc}] %= (%2.l,%2.c) (%P) '
 
 "" spelling
 set spellfile=~/.vim/spellfile.add
