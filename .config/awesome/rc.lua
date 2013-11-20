@@ -66,9 +66,9 @@ local layouts =
     awful.layout.suit.tile.bottom,
 --    awful.layout.suit.tile.top,
     awful.layout.suit.fair,
---    awful.layout.suit.fair.horizontal,
+    awful.layout.suit.fair.horizontal,
 --    awful.layout.suit.spiral,
-    awful.layout.suit.spiral.dwindle,
+--    awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
     awful.layout.suit.max.fullscreen,
 --    awful.layout.suit.magnifier
@@ -89,7 +89,7 @@ tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
     tags[s] = awful.tag({ " shell " , " web " , " files " , " edit " , " media " }, s,
-    { layouts[2] , layouts[6] , layouts[2] , layouts[3] , layouts[2] })
+    { layouts[4] , layouts[6] , layouts[4] , layouts[5] , layouts[4] })
 end
 -- }}}
 
