@@ -15,6 +15,6 @@ imap <f2> 		<esc>:w<cr>:make<cr><cr>
 nnoremap <f3> 	:!evince %:r.pdf &<cr><cr>
 
 "these bindings make typing easier on german keyboard
-inoremap ß \
-inoremap ö {
-inoremap ä }
+map! ß \
+map! ö {
+map! ä }
