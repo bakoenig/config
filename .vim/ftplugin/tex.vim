@@ -18,3 +18,5 @@ nnoremap <f3> 	:!evince %:r.pdf &<cr><cr>
 map! ß \
 map! ö {
 map! ä }
+
+source ~/Desktop/auctex.vim
