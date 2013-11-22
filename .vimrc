@@ -16,7 +16,6 @@ set backspace=2
 set guioptions=acei
 set wildmenu
 set wildmode=list:longest,full
-set whichwrap+=<,>,[,]
 set mouse=a
 set hidden 
 set autoindent

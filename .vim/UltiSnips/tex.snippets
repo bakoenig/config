@@ -6,6 +6,23 @@ snippet env "Environment" !b
 $0
 endsnippet
 
+snippet envl "Environment with label" !b
+\begin{${1:environment}}
+	$2
+\end{$1}
+	\label{eq:$3}
+
+$0
+endsnippet
+
+snippet equation "Equation" b
+\begin{equation}
+    $1
+\end{equation}
+	\label{eq:$2}
+
+$0
+endsnippet
 snippet claim "Claim" b
 \begin{claim}
     $1
