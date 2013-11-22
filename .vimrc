@@ -48,7 +48,7 @@ set spellfile=~/.vim/spellfile.add
 nnoremap 	+ 			:bnext <CR>
 nnoremap 	- 			:bprevious <CR>
 nnoremap 	, 			:
-nnoremap 	<leader>o	:Mru 
+nnoremap 	<C-o> 		:Mru 
 nnoremap 	Q 			gqap
 
 " remapping arrow keys
