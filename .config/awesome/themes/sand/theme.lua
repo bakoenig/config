@@ -7,8 +7,6 @@
 -- now called "Sand"
 -------------------------------
 
-
-
 local awful = require("awful")
 awful.util = require("awful.util")
 
