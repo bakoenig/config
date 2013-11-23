@@ -253,9 +253,7 @@ for s = 1, screen.count() do
 	right_layout:add(mutewidget)
 	right_layout:add(spacer)
     if s == 1 then right_layout:add(wibox.widget.systray()) end
-	right_layout:add(spacer)
     right_layout:add(mytextclock)
-	right_layout:add(spacer)
     right_layout:add(mylayoutbox[s])
 --  right_layout:add(mylauncher)
 
