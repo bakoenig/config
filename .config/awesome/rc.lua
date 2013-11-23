@@ -131,7 +131,7 @@ separator = wibox.widget.textbox(" | ")
 downwidget = wibox.widget.textbox()
 vicious.register(downwidget, vicious.widgets.net, '<span color="#008000">${wlp9s0 down_kb}</span>', 5)
 upwidget = wibox.widget.textbox()
-vicious.register(upwidget, vicious.widgets.net, '<span color="#0000ff">${wlp9s0 up_kb}</span>', 5)
+vicious.register(upwidget, vicious.widgets.net, '<span color="#1a1aff">${wlp9s0 up_kb}</span>', 5)
 
 -- Memory usage widget
 --memwidget = wibox.widget.textbox()
@@ -150,7 +150,7 @@ cpuwidget:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.u
 thermalwidget = wibox.widget.textbox() vicious.register(thermalwidget, vicious.widgets.thermal, '<span color="#ff0000">$1°C </span>', 13, { "coretemp.0", "core"})
 
 -- Battery widget
-batwidget = wibox.widget.textbox() vicious.register(batwidget,vicious.widgets.bat,'<span color="#0000ff">$2$1</span>',60,"BAT1")
+batwidget = wibox.widget.textbox() vicious.register(batwidget,vicious.widgets.bat,'<span color="#1a1aff">$2$1</span>',60,"BAT1")
 
 -- Create a textclock widget
 mytextclock = awful.widget.textclock() mytextclock:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvt -e sh ~/bin/calendar.sh") end)))
