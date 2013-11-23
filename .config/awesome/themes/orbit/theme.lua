@@ -8,10 +8,10 @@ awful.util = require("awful.util")
 theme = {}
 config = awful.util.getdir("config")
 themedir = config .. "/themes/orbit"
-theme.wallpaper = themedir .. "/background2.jpg"
+theme.wallpaper = themedir .. "/background.jpg"
 
 
-theme.font          = "Andale Mono 9"
+theme.font          = "Courier New 9"
 
 theme.bg_normal     = "#1a1a1a"
 theme.bg_focus      = "#3e3e3e"
