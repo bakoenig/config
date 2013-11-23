@@ -62,15 +62,15 @@ theme.wid_ch = "#96cccc"
 -- You can add as many variables as
 -- you wish and access them by using
 -- beautiful.variable in your rc.lua
-theme.fg_widget        = "#AECF96"
-theme.fg_center_widget = "#88A175"
-theme.fg_end_widget    = "#FF5656"
-theme.bg_widget        = "#494B4F"
-theme.border_widget    = "#3F3F3F"
+theme.fg_widget        = "#aecf96"
+theme.fg_center_widget = "#88a175"
+theme.fg_end_widget    = "#ff5656"
+theme.bg_widget        = "#494b4f"
+theme.border_widget    = "#3f3f3f"
 -- }}}
 
 -- {{{ Mouse finder
-theme.mouse_finder_color = "#CC9393"
+theme.mouse_finder_color = "#cc9393"
 -- mouse_finder_[timeout|animate_timeout|radius|factor]
 -- }}}
 
@@ -97,17 +97,17 @@ theme.tasklist_floating_icon = themedir .. "/default/tasklist/floatingw.png"
 
 -- {{{ Layout
 theme.layout_tile       = themedir .. "/layouts/tile.png"
-theme.layout_tileleft   = themedir .. "/layouts/tileleft.png"
-theme.layout_tilebottom = themedir .. "/layouts/tilebottom.png"
-theme.layout_tiletop    = themedir .. "/layouts/tiletop.png"
+theme.layout_tileleft   = themedir .. "/layouts/tileleftw.png"
+theme.layout_tilebottom = themedir .. "/layouts/tilebottomw.png"
+theme.layout_tiletop    = themedir .. "/layouts/tiletopw.png"
 theme.layout_fairv      = themedir .. "/layouts/fairv.png"
 theme.layout_fairh      = themedir .. "/layouts/fairh.png"
-theme.layout_spiral     = themedir .. "/layouts/spiral.png"
-theme.layout_dwindle    = themedir .. "/layouts/dwindle.png"
+theme.layout_spiral     = themedir .. "/layouts/spiralw.png"
+theme.layout_dwindle    = themedir .. "/layouts/dwindlew.png"
 theme.layout_max        = themedir .. "/layouts/max.png"
 theme.layout_fullscreen = themedir .. "/layouts/fullscreen.png"
 theme.layout_magnifier  = themedir .. "/layouts/magnifier.png"
-theme.layout_floating   = themedir .. "/layouts/floating.png"
+theme.layout_floating   = themedir .. "/layouts/floatingw.png"
 -- }}}
 
 -- {{{ Titlebar
