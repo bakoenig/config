@@ -53,7 +53,6 @@ theme.taglist_squares_resize = "false"
 theme.awesome_icon           	= "/usr/share/awesome/themes/zenburn/awesome-icon.png"
 theme.menu_submenu_icon      	= "~/.config/awesome/icons/submenu.png"
 theme.tasklist_floating_icon 	= "/usr/share/awesome/themes/default/tasklist/floatingw.png"
-theme.neticon 			= themedir .. "icons/transfer.png"
 
 theme.layout_tile       = themedir .. "/layouts/tile.png"
 theme.layout_tileleft   = themedir .. "/layouts/tileleft.png"

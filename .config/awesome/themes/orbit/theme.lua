@@ -68,9 +68,9 @@ theme.taglist_squares_unsel = themedir .. "/taglist/squarez.png"
 --theme.taglist_squares_resize = "false"
 
 -- {{{ Misc
---theme.awesome_icon           = themedir .. "/awesome-icon.png"
-theme.menu_submenu_icon      = themedir .. "/default/submenu.png"
-theme.tasklist_floating_icon = themedir .. "/default/tasklist/floatingw.png"
+theme.awesome_icon           	= "/usr/share/awesome/themes/zenburn/awesome-icon.png"
+theme.menu_submenu_icon      	= "~/.config/awesome/icons/submenu.png"
+theme.tasklist_floating_icon 	= "/usr/share/awesome/themes/default/tasklist/floatingw.png"
 
 -- {{{ Layout
 theme.layout_tile       = themedir .. "/layouts/tile.png"
