@@ -19,5 +19,5 @@ application/x-mspowerpoint;		catppt %s; copiousoutput
 application/ppt;				catppt %s; copiousoutput
 
 application/pdf;				pdftotext %s -; copiousoutput
-
+application/x-chess-pgn; 		chessx %s; copiousoutput
 image/*;						gpicview %s; copiousoutput
