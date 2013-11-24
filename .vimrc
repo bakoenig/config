@@ -67,6 +67,6 @@ inoremap <right> <NOP>
 
 "" different themes
 
-"colors asu1dark
-colors biogoo
+colors jellybeans
+"colors biogoo
 "colors navajo-night
