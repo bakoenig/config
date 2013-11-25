@@ -50,9 +50,9 @@ theme.taglist_squares_sel   = themedir .. "/taglist/squaref.png"
 theme.taglist_squares_unsel = themedir .. "/taglist/squareb.png"
 theme.taglist_squares_resize = "false"
 
-theme.awesome_icon           	= "/usr/share/awesome/themes/zenburn/awesome-icon.png"
+theme.awesome_icon           	= "~/.config/awesome/icons/awesome16.png"
 theme.menu_submenu_icon      	= "~/.config/awesome/icons/submenu.png"
-theme.tasklist_floating_icon 	= "/usr/share/awesome/themes/default/tasklist/floatingw.png"
+--theme.tasklist_floating_icon 	= "/usr/share/awesome/themes/default/tasklist/floatingw.png"
 
 theme.layout_tile       = themedir .. "/layouts/tile.png"
 theme.layout_tileleft   = themedir .. "/layouts/tileleft.png"

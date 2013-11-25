@@ -107,7 +107,7 @@ myawesomemenu = {
    { "session", mysessionmenu }
 }
 
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
+mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, theme.awesome_icon },
                                     { "Open Terminal", terminal },
 									{ "Chromium", "chromium" },
 									{ "Firefox", "firefox" }
