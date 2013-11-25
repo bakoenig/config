@@ -41,7 +41,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 --beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
-beautiful.init("/home/bernhard/.config/awesome/themes/sand/theme.lua")
+beautiful.init("/home/bernhard/.config/awesome/themes/orbit/theme.lua")
 -- other themes: crown, dunzor, dust, grey-new, wombat, zenburn
 
 -- This is used later as the default terminal and editor to run.

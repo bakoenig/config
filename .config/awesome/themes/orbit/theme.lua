@@ -63,8 +63,8 @@ theme.menu_height = "15"
 
 -- {{{ Icons
 -- {{{ Taglist
-theme.taglist_squares_sel   = themedir .. "/taglist/squarefz.png"
-theme.taglist_squares_unsel = themedir .. "/taglist/squarez.png"
+theme.taglist_squares_sel   = themedir .. "/taglist/square_a.png"
+theme.taglist_squares_unsel = themedir .. "/taglist/square_b.png"
 --theme.taglist_squares_resize = "false"
 
 -- {{{ Misc
