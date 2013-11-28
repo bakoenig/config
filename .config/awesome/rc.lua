@@ -43,7 +43,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 --beautiful.init("/usr/share/awesome/themes/steamburn/theme.lua")
-beautiful.init("/home/bernhard/.config/awesome/themes/orbit/theme.lua")
+beautiful.init("/home/bernhard/.config/awesome/themes/steamburn/theme.lua")
 -- other themes: blackburn, dremora, multicolor, steamburn, wombat
 
 -- This is used later as the default terminal and editor to run.
