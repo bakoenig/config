@@ -10,6 +10,8 @@ local beautiful = require("beautiful")
 -- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
+local drop      = require("scratchdrop")
+local lain      = require("lain")
 
 vicious = require("vicious")
 
@@ -40,8 +42,8 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/usr/share/awesome/themes/steamburn/theme.lua")
---beautiful.init("/home/bernhard/.config/awesome/themes/sand/theme.lua")
+--beautiful.init("/usr/share/awesome/themes/steamburn/theme.lua")
+beautiful.init("/home/bernhard/.config/awesome/themes/sand/theme.lua")
 -- other themes: blackburn, dremora, multicolor, steamburn, wombat
 
 -- This is used later as the default terminal and editor to run.
@@ -62,9 +64,9 @@ local layouts =
 {
     awful.layout.suit.floating,
     awful.layout.suit.tile,
---    awful.layout.suit.tile.left,
+    awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
---    awful.layout.suit.tile.top,
+    awful.layout.suit.tile.top,
     awful.layout.suit.fair,
     awful.layout.suit.fair.horizontal,
 --    awful.layout.suit.spiral,
@@ -83,13 +85,17 @@ if beautiful.wallpaper then
 end
 -- }}}
 
+-- {{{ Variable definitions
+-- localization
+--os.setlocale(os.getenv("LANG"))
+
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ " shell " , " web " , " files " , " edit " , " media " }, s,
-    { layouts[4] , layouts[6] , layouts[4] , layouts[4] , layouts[4] })
+    tags[s] = awful.tag({ "Ζζhell " , "Ββrowser " , "Φφiles " , "TeΧξt " , "Ωωmega " }, s,
+    { layouts[6] , layouts[8] , layouts[6] , layouts[6] , layouts[1] })
 end
 -- }}}
 
@@ -123,61 +129,73 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 
 -- {{{ Wibox
 
+markup = lain.util.markup
+
+-- Weather
+yawn = lain.widgets.yawn(650518,
+{
+    settings = function()
+        widget:set_markup(" " .. units .. " ")
+    end
+})
+
 -- Separators
 spacer = wibox.widget.textbox("  ")
 separator = wibox.widget.textbox(" | ")
 
--- Network usage widget
-downwidget = wibox.widget.textbox()
-vicious.register(downwidget, vicious.widgets.net, '<span color="#008000">${wlp9s0 down_kb}</span>', 5)
-upwidget = wibox.widget.textbox()
-vicious.register(upwidget, vicious.widgets.net, '<span color="#1a1aff">${wlp9s0 up_kb}</span>', 5)
 
--- Memory usage widget
---memwidget = wibox.widget.textbox()
---vicious.register(memwidget, vicious.widgets.mem, " RAM: $1%", 13)
---memwidget:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvt -e htop -s PERCENT_MEM") end)))
+-- Battery
+batwidget = lain.widgets.bat({
+	battery = "BAT1",
+    settings = function()
+        bat_perc = bat_now.perc
+		if bat_now.status == "Discharging" then
+        widget:set_markup( " Bat " .. markup(red, bat_perc) )
+		else
+        widget:set_markup( " Bat " .. markup(blue, bat_perc) )
+		end
+    end
+})
 
--- CPU usage widget
-cpuwidget = awful.widget.graph()
-cpuwidget:set_width(50)
-cpuwidget:set_color("linear:0,0:0,20:0,#cd0000:1,#ffaa00")
-cpuwidget:set_background_color("#474747")
-vicious.register(cpuwidget, vicious.widgets.cpu, "$1")
-cpuwidget:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvt -e htop -s PERCENT_CPU") end)))
+-- Net checker
+netwidget = lain.widgets.net({
+    settings = function()
+        if net_now.state == "up" then net_state = "On"
+        else net_state = "Off" end
+        widget:set_markup( " Net " .. net_state )
+    end
+})
 
--- CPU temperature
-thermalwidget = wibox.widget.textbox() vicious.register(thermalwidget, vicious.widgets.thermal, '<span color="#ff0000">$1°C </span>', 13, { "coretemp.0", "core"})
+-- Coretemp
+tempicon = wibox.widget.imagebox()
+tempicon:set_image(awful.util.getdir("config") .. "/icons/cpu.png")
 
--- Battery widget
-batwidget = wibox.widget.textbox() vicious.register(batwidget,vicious.widgets.bat,'<span color="#1a1aff">$2$1</span>',60,"BAT1")
+tempwidget = lain.widgets.temp({
+    settings = function()
+        widget:set_markup(markup(orange, coretemp_now .. "°C"))
+    end
+})
 
--- Create a textclock widget
-mytextclock = awful.widget.textclock() mytextclock:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvt -e sh ~/bin/calendar.sh") end)))
+-- Textclock
+clockicon = wibox.widget.imagebox(beautiful.widget_clock)
+mytextclock = awful.widget.textclock(markup(blue, "%a %d %b") .. " " .. markup(red, "%H:%M") .. " ")
 
--- Volume widgets
-mutewidget = wibox.widget.textbox() vicious.register(mutewidget, vicious.widgets.volume, "$2", 1, "Master")
+-- Calendar
+lain.widgets.calendar:attach(mytextclock, { font_size = 10 })
 
-volwidget = awful.widget.progressbar()
-volwidget:set_width(15)
-volwidget:set_vertical(true)
-volwidget:set_color("linear:0,0:0,20:0,#ffa500:1,#800000")
-vicious.register(volwidget, vicious.widgets.volume, "$1", 1, "Master")
-volwidget:buttons(awful.util.table.join(
-awful.button({ }, 2, function ()
-awful.util.spawn_with_shell("amixer set Master toggle") end),
-awful.button({ }, 3, function ()
-awful.util.spawn_with_shell("urxvt -e alsamixer") end),
-awful.button({ }, 4, function ()
-awful.util.spawn("amixer set Master 2%+") end),
-awful.button({ }, 5, function ()
-awful.util.spawn("amixer set Master 2%-") end)
-))
+-- ALSA volume bar
+volume = lain.widgets.alsabar({vertical = true, width = 9, ticks_size = 3 })
+volmargin = wibox.layout.margin(volume.bar)
+volmargin:set_top(1)
+volmargin:set_bottom(1)
+volumewidget = wibox.widget.background(volmargin)
+volumewidget:set_bgimage(beautiful.vol_bg)
 
-
+-- Create a wibox for each screen and add it
 mywibox = {}
 mypromptbox = {}
 mylayoutbox = {}
+txtlayoutbox = {}
 mytaglist = {}
 mytaglist.buttons = awful.util.table.join(
                     awful.button({ }, 1, awful.tag.viewonly),
@@ -199,19 +217,26 @@ mytasklist.buttons = awful.util.table.join(
 
 for s = 1, screen.count() do
 
-	updownicon = wibox.widget.imagebox()
- 	updownicon:set_image(awful.util.getdir("config") .. "/icons/transfer.png")
-	baticon = wibox.widget.imagebox()
-	baticon:set_image(awful.util.getdir("config") .. "/icons/battery.png")
-	cpuicon = wibox.widget.imagebox()
-	cpuicon:set_image(awful.util.getdir("config") .. "/icons/cpu.png")
-
-
     mypromptbox[s] = awful.widget.prompt()
     mylayoutbox[s] = awful.widget.layoutbox(s)
-    mylayoutbox[s]:buttons(awful.util.table.join(
-                           awful.button({ }, 1, function () awful.layout.inc(layouts, 1) end),
-                           awful.button({ }, 3, function () awful.layout.inc(layouts, -1) end)))
+	
+-- Writes a string representation of the current layout in a textbox widget
+function updatelayoutbox(layout, s)
+    local screen = s or 1
+    local txt_l = beautiful["layout_txt_" .. awful.layout.getname(awful.layout.get(screen))] or ""
+    layout:set_text(txt_l)
+end
+
+    -- Create a textbox widget which will contains a short string representing the
+    -- layout we're using.  We need one layoutbox per screen.
+    txtlayoutbox[s] = wibox.widget.textbox(beautiful["layout_txt_" .. awful.layout.getname(awful.layout.get(s))])
+    awful.tag.attached_connect_signal(s, "property::selected", function ()
+        updatelayoutbox(txtlayoutbox[s], s)
+    end)
+    awful.tag.attached_connect_signal(s, "property::layout", function ()
+        updatelayoutbox(txtlayoutbox[s], s)
+    end)
+
     -- Create a taglist widget
     mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.filter.all, mytaglist.buttons)
 
@@ -232,30 +257,24 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the left
     local left_layout = wibox.layout.fixed.horizontal()
     left_layout:add(mytaglist[s])
-    left_layout:add(separator)
+    left_layout:add(txtlayoutbox[s])
+    left_layout:add(spacer)
     left_layout:add(mypromptbox[s])
 
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
-			right_layout:add(spacer)
-    right_layout:add(downwidget)
-    right_layout:add(updownicon)
-	right_layout:add(upwidget)
-    right_layout:add(spacer)
-    right_layout:add(cpuwidget)
-    right_layout:add(spacer)
---	right_layout:add(cpuicon)
-    right_layout:add(thermalwidget)
-	right_layout:add(baticon)
-    right_layout:add(batwidget)
-    right_layout:add(spacer)
-    right_layout:add(volwidget)
-	right_layout:add(mutewidget)
-	right_layout:add(spacer)
     if s == 1 then right_layout:add(wibox.widget.systray()) end
+    right_layout:add(netwidget)
+    right_layout:add(separator)
+    right_layout:add(tempwidget)
+    right_layout:add(batwidget)
+    right_layout:add(separator)
+    right_layout:add(volumewidget)
+    right_layout:add(separator)
+    right_layout:add(yawn.icon)
+    right_layout:add(yawn.widget)
     right_layout:add(mytextclock)
-    right_layout:add(mylayoutbox[s])
---  right_layout:add(mylauncher)
+--	right_layout:add(spacer)
 
     -- Now bring it all together (with the tasklist in the middle)
     local layout = wibox.layout.align.horizontal()
@@ -506,6 +525,8 @@ client.connect_signal("manage", function (c, startup)
 
         awful.titlebar(c):set_widget(layout)
     end
+	-- Set proper backgrounds, instead of beautiful.bg_normal
+    --mywibox[s]:set_bg(beautiful.topbar_path .. screen[mouse.screen].workarea.width .. ".png")
 end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)

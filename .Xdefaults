@@ -12,7 +12,7 @@ URxvt.cursorBlink:	  	false
 URxvt.cursorUnderline:	false
 URxvt.cursorColor:	  	#FFFF00
 URxvt.iconFile:		    /usr/share/icons/gnome/32x32/apps/terminal.png
-URxvt.font:				xft:terminus-9
+URxvt.font:				xft:Tamsyn-10.5
 
 !colors
 URxvt.background:	black

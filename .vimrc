@@ -7,7 +7,9 @@ Bundle 'gmarik/vundle'
 Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/mru.vim'
 Bundle 'SirVer/ultisnips'
-Bundle 'flazz/vim-colorschemes'
+Bundle 's-urbaniak/xoria256'
+Bundle 'w0ng/vim-hybrid'
+Bundle 'kien/ctrlp.vim'
 
 "" general settings
 set autoindent
@@ -34,6 +36,10 @@ set nohlsearch
 set ignorecase
 set smartcase
 set incsearch
+
+""CTRL-P plugin
+let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_working_path_mode = 'c'
 
 "" status line
 set laststatus=2
@@ -67,6 +73,6 @@ inoremap <right> <NOP>
 
 "" different themes
 
-colors jellybeans
-"colors biogoo
-"colors navajo-night
+"colors jellybeans
+"colors hybrid
+colors xoria256

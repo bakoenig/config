@@ -86,9 +86,25 @@ theme.layout_fullscreen = themedir .. "/layouts/fullscreen.png"
 theme.layout_magnifier  = themedir .. "/layouts/magnifier.png"
 theme.layout_floating   = themedir .. "/layouts/floatingw.png"
 
+theme.layout_txt_tile               = "[t]"
+theme.layout_txt_tileleft           = "[l]"
+theme.layout_txt_tilebottom         = "[b]"
+theme.layout_txt_tiletop            = "[tt]"
+theme.layout_txt_fairv              = "[fv]"
+theme.layout_txt_fairh              = "[fh]"
+theme.layout_txt_spiral             = "[s]"
+theme.layout_txt_dwindle            = "[d]"
+theme.layout_txt_max                = "[m]"
+theme.layout_txt_fullscreen         = "[F]"
+theme.layout_txt_magnifier          = "[M]"
+theme.layout_txt_floating           = "[|]"
+
 -- Titlebar
 -- this theme has no titlebar icons specified
--- compare with sand theme that has titlebar icons
+
+orange 	= "#f1af5f"
+red 	= "#de5e1e"
+blue 	= "#7788af"
 
 return theme
 
