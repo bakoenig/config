@@ -5,7 +5,6 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'ervandew/supertab'
-Bundle 'vim-scripts/mru.vim'
 Bundle 'SirVer/ultisnips'
 Bundle 's-urbaniak/xoria256'
 Bundle 'w0ng/vim-hybrid'
