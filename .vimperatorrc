@@ -14,5 +14,5 @@ noremap j 7j
 noremap k 7k
 noremap J :tabNext<cr>
 noremap K :tabnext<cr>
-"noremap o <C-l>
-"noremap t <C-t>
+noremap o <C-l>
+noremap t <C-t>
