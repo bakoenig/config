@@ -1,19 +1,17 @@
 -- Standard awesome library
-local gears = require("gears")
-local awful = require("awful")
-awful.rules = require("awful.rules")
+local gears 	= require("gears")
+local awful 	= require("awful")
+awful.rules 	= require("awful.rules")
 require("awful.autofocus")
 -- Widget and layout library
-local wibox = require("wibox")
+local wibox 	= require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
 -- Notification library
-local naughty = require("naughty")
-local menubar = require("menubar")
-local drop      = require("scratchdrop")
-local lain      = require("lain")
+local naughty 	= require("naughty")
+local menubar 	= require("menubar")
+local lain    	= require("lain")
 
-vicious = require("vicious")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -94,7 +92,7 @@ end
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ "Ζζhell " , "Ββrowser " , "Φφiles " , "TeΧξt " , "Ωωmega " }, s,
+    tags[s] = awful.tag({ " Αα " , " Ββ " , " Γγ " , " Δδ " , " Ωω " }, s,
     { layouts[6] , layouts[8] , layouts[6] , layouts[6] , layouts[1] })
 end
 -- }}}
@@ -135,14 +133,9 @@ markup = lain.util.markup
 yawn = lain.widgets.yawn(650518,
 {
     settings = function()
-        widget:set_markup(" " .. units .. " ")
+        widget:set_markup(" " .. units .. "°C")
     end
 })
-
--- Separators
-spacer = wibox.widget.textbox("  ")
-separator = wibox.widget.textbox(" | ")
-
 
 -- Battery
 batwidget = lain.widgets.bat({
@@ -167,29 +160,60 @@ netwidget = lain.widgets.net({
 })
 
 -- Coretemp
-tempicon = wibox.widget.imagebox()
-tempicon:set_image(awful.util.getdir("config") .. "/icons/cpu.png")
-
 tempwidget = lain.widgets.temp({
     settings = function()
         widget:set_markup(markup(orange, coretemp_now .. "°C"))
     end
 })
 
--- Textclock
-clockicon = wibox.widget.imagebox(beautiful.widget_clock)
+-- Create a textclock widget
 mytextclock = awful.widget.textclock(markup(blue, "%a %d %b") .. " " .. markup(red, "%H:%M") .. " ")
+mytextclock:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvt -e sh ~/bin/calendar.sh") end)))
 
--- Calendar
-lain.widgets.calendar:attach(mytextclock, { font_size = 10 })
+-- Volume widget
+volwidget = awful.widget.progressbar()
 
--- ALSA volume bar
-volume = lain.widgets.alsabar({vertical = true, width = 9, ticks_size = 3 })
-volmargin = wibox.layout.margin(volume.bar)
-volmargin:set_top(1)
-volmargin:set_bottom(1)
-volumewidget = wibox.widget.background(volmargin)
-volumewidget:set_bgimage(beautiful.vol_bg)
+function update_volume(widget)
+   local fd = io.popen("amixer sget Master")
+   local status = fd:read("*all")
+   fd:close()
+   local volume = string.match(status, "(%d?%d?%d)%%")
+   volume = string.format("% 3d", volume)
+   status = string.match(status, "%[(o[^%]]*)%]")
+   volwidget:set_value(volume/100)
+   if string.find(status, "on", 1, true) then
+       -- if unmuted
+	   volwidget:set_color("#a4ce8a")
+   else
+       -- if muted
+	   volwidget:set_color()
+   end
+end
+update_volume(volwidget)
+mytimer = timer({ timeout = 4 })
+mytimer:connect_signal("timeout", function () update_volume(volume_widget) end)
+mytimer:start()
+
+volwidget:set_width(9)
+volwidget:set_vertical(true)
+volwidget:set_ticks(true)
+volwidget:set_background_color("#123456")
+volwidget:buttons(awful.util.table.join(
+--awful.button({ }, 2, function ()
+--awful.util.spawn_with_shell("urxvt -e alsamixer") end),
+awful.button({ }, 3, function ()
+awful.util.spawn_with_shell("amixer set Master toggle") end),
+awful.button({ }, 4, function ()
+awful.util.spawn("amixer set Master 2%+") end),
+awful.button({ }, 5, function ()
+awful.util.spawn("amixer set Master 2%-") end)
+))
+
+-- Separators
+spacer = wibox.widget.textbox("  ")
+separator = wibox.widget.textbox(" | ")
+arrow = wibox.widget.textbox(" >> ")
+slash = wibox.widget.textbox(" // ")
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -257,8 +281,9 @@ end
     -- Widgets that are aligned to the left
     local left_layout = wibox.layout.fixed.horizontal()
     left_layout:add(mytaglist[s])
+    left_layout:add(slash)
     left_layout:add(txtlayoutbox[s])
-    left_layout:add(spacer)
+    left_layout:add(arrow)
     left_layout:add(mypromptbox[s])
 
     -- Widgets that are aligned to the right
@@ -269,12 +294,12 @@ end
     right_layout:add(tempwidget)
     right_layout:add(batwidget)
     right_layout:add(separator)
-    right_layout:add(volumewidget)
+    right_layout:add(volwidget)
     right_layout:add(separator)
     right_layout:add(yawn.icon)
     right_layout:add(yawn.widget)
+	right_layout:add(spacer)
     right_layout:add(mytextclock)
---	right_layout:add(spacer)
 
     -- Now bring it all together (with the tasklist in the middle)
     local layout = wibox.layout.align.horizontal()
@@ -459,7 +484,6 @@ awful.rules.rules = {
     { rule = { class = "Firefox" }, properties = { tag = tags[1][2] } },
     { rule = { class = "Pcmanfm" }, properties = { tag = tags[1][3] } },
     { rule = { class = "Thunar" }, properties = { tag = tags[1][3] } },
-    { rule = { class = "Spacefm" }, properties = { tag = tags[1][3] } },
 --  { rule = { class = "Smplayer" }, properties = { tag = tags[1][5] } },
     { rule = { class = "Rhythmbox" }, properties = { tag = tags[1][5] } },
 }
