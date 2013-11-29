@@ -168,7 +168,7 @@ tempwidget = lain.widgets.temp({
 
 -- Create a textclock widget
 mytextclock = awful.widget.textclock(markup(blue, "%a %d %b") .. " " .. markup(red, "%H:%M") .. " ")
-mytextclock:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvt -e sh ~/bin/calendar.sh") end)))
+mytextclock:buttons(awful.util.table.join(awful.button({ }, 3, function () awful.util.spawn_with_shell("urxvt -e sh ~/bin/calendar.sh") end)))
 
 -- Volume widget
 volwidget = awful.widget.progressbar()
