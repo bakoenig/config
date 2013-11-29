@@ -190,7 +190,7 @@ function update_volume(widget)
    end
 end
 update_volume(volwidget)
-mytimer = timer({ timeout = 4 })
+mytimer = timer({ timeout = 2 })
 mytimer:connect_signal("timeout", function () update_volume(volume_widget) end)
 mytimer:start()
 
