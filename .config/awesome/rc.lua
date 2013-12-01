@@ -172,6 +172,13 @@ mytextclock:buttons(awful.util.table.join(awful.button({ }, 3, function () awful
 
 -- Volume widget
 volwidget = awful.widget.progressbar()
+volmargin = wibox.layout.margin(volwidget)
+volwidget:set_width(9)
+volwidget:set_vertical(true)
+volwidget:set_ticks(true)
+volmargin:set_top(1)
+volmargin:set_bottom(1)
+volwidget:set_background_color("#123456")
 
 function update_volume(widget)
    local fd = io.popen("amixer sget Master")
@@ -194,10 +201,6 @@ mytimer = timer({ timeout = 2 })
 mytimer:connect_signal("timeout", function () update_volume(volume_widget) end)
 mytimer:start()
 
-volwidget:set_width(9)
-volwidget:set_vertical(true)
-volwidget:set_ticks(true)
-volwidget:set_background_color("#123456")
 volwidget:buttons(awful.util.table.join(
 --awful.button({ }, 2, function ()
 --awful.util.spawn_with_shell("urxvt -e alsamixer") end),
@@ -294,7 +297,7 @@ end
     right_layout:add(tempwidget)
     right_layout:add(batwidget)
     right_layout:add(separator)
-    right_layout:add(volwidget)
+    right_layout:add(volmargin)
     right_layout:add(separator)
     right_layout:add(yawn.icon)
     right_layout:add(yawn.widget)
