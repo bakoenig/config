@@ -11,8 +11,7 @@ themedir = config .. "/themes/orbit"
 theme.wallpaper = themedir .. "/background.jpg"
 
 
-theme.font          = "Andale Mono 10"
---theme.font          = "Clean 9"
+theme.font          = "Clean 9"
 
 theme.bg_normal     = "#1a1a1a"
 theme.bg_focus      = "#3e3e3e"
