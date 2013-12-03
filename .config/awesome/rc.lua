@@ -155,16 +155,22 @@ netwidget = lain.widgets.net({
     settings = function()
         if net_now.state == "up" then net_state = "On"
         else net_state = "Off" end
-        widget:set_markup( " Net " .. net_state .. " ")
+        widget:set_markup( " Net " .. net_state )
     end
 })
 
--- Coretemp
-tempwidget = lain.widgets.temp({
-    settings = function()
-        widget:set_markup(markup(orange, coretemp_now .. "°C"))
+-- Coretemp widget
+tempwidget = wibox.widget.textbox()
+function update_temp()
+        local f = io.open("/sys/class/thermal/thermal_zone0/temp")
+        coretemp_now = tonumber(f:read("*all")) / 1000
+        f:close()
     end
-})
+update_temp(tempwidget)
+mytimer = timer({ timeout = 10 })
+mytimer:connect_signal("timeout", function () update_volume(volume_widget) end)
+tempwidget:set_markup(markup(orange, coretemp_now .. "°C"))
+mytimer:start()
 
 -- Create a textclock widget
 mytextclock = awful.widget.textclock(markup(blue, "%a %d %b") .. " " .. markup(red, "%H:%M") .. " ")
@@ -173,7 +179,7 @@ mytextclock:buttons(awful.util.table.join(awful.button({ }, 3, function () awful
 -- Volume widget
 volwidget = awful.widget.progressbar()
 volmargin = wibox.layout.margin(volwidget)
-volwidget:set_width(9)
+volwidget:set_width(11)
 volwidget:set_vertical(true)
 volwidget:set_ticks(true)
 volmargin:set_top(1)
@@ -292,7 +298,7 @@ end
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     right_layout:add(netwidget)
-    if s == 1 then right_layout:add(wibox.widget.systray()) end
+	--if s == 1 then right_layout:add(wibox.widget.systray()) end
     right_layout:add(separator)
     right_layout:add(tempwidget)
     right_layout:add(batwidget)
@@ -561,6 +567,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- {{{Autorun
-awful.util.spawn_with_shell("nm-applet")
+--awful.util.spawn_with_shell("nm-applet")
 --awful.util.spawn_with_shell("sleep 2; volumeicon")
 -- }}}
