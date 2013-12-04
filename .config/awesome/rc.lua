@@ -139,27 +139,32 @@ yawn = lain.widgets.yawn(650518,
 
 -- Battery
 batwidget = wibox.widget.textbox()
-function update_temp()
+function update_bat()
         local f1 = io.open("/sys/class/power_supply/BAT1/charge_now")
         local f2 = io.open("/sys/class/power_supply/BAT1/charge_full")
         local f3 = io.open("/sys/class/power_supply/BAT1/status")
-        coretemp_now = tonumber(f1:read("*all")) / tonumber(f2:read("*all"))
-		bat_now.status = f3:read("*all")
+		bat_status = f3:read("*all")
+        perc = 100 * tonumber(f1:read("*all")) / tonumber(f2:read("*all"))
+		if perc <= 100 then
+                bat_perc_string = string.format("%d", perc)
+            elseif perc > 100 then
+                bat_perc_string = "100"
+            elseif perc < 0 then
+                bat_perc_string = "0"
+            end
+		if bat_status == "Discharging" then
+				batwidget:set_markup( " Bat " .. markup(red, bat_perc_string) )
+				else
+				batwidget:set_markup( " Bat " .. markup(blue, bat_perc_string) )
+				end
         f1:close()
         f2:close()
         f3:close()
     end
 update_bat(batwidget)
-mytimer = timer({ timeout = 15 })
-
-settings = function()
-    bat_perc = bat_now.perc
-	if bat_now.status == "Discharging" then
-    batwidget:set_markup( " Bat " .. markup(red, bat_perc) )
-	else
-    batwidget:set_markup( " Bat " .. markup(blue, bat_perc) )
-	end
-end
+mytimer = timer({ timeout = 10 })
+mytimer:connect_signal("timeout", function () update_bat(batwidget) end)
+mytimer:start()
 
 -- Net checker
 netwidget = lain.widgets.net({
@@ -179,7 +184,7 @@ function update_temp()
     end
 update_temp(tempwidget)
 mytimer = timer({ timeout = 10 })
-mytimer:connect_signal("timeout", function () update_volume(volume_widget) end)
+mytimer:connect_signal("timeout", function () update_temp(tempwidget) end)
 tempwidget:set_markup(markup(orange, coretemp_now .. "°C"))
 mytimer:start()
 
@@ -215,7 +220,7 @@ function update_volume(widget)
 end
 update_volume(volwidget)
 mytimer = timer({ timeout = 2 })
-mytimer:connect_signal("timeout", function () update_volume(volume_widget) end)
+mytimer:connect_signal("timeout", function () update_volume(volwidget) end)
 mytimer:start()
 
 volwidget:buttons(awful.util.table.join(
