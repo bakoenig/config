@@ -138,28 +138,28 @@ yawn = lain.widgets.yawn(650518,
 })
 
 -- Battery
- batwidget = wibox.widget.textbox()
- function update_temp()
-         local f1 = io.open("/sys/class/power_supply/BAT1/charge_now")
-         local f2 = io.open("/sys/class/power_supply/BAT1/charge_full")
-         local f3 = io.open("/sys/class/power_supply/BAT1/status")
-         coretemp_now = tonumber(f1:read("*all")) / tonumber(f2:read("*all"))
- 		bat_now.status = f3:read("*all")
-         f1:close()
-         f2:close()
-         f3:close()
-     end
- update_bat(batwidget)
- mytimer = timer({ timeout = 15 })
- 
- settings = function()
-     bat_perc = bat_now.perc
- 	if bat_now.status == "Discharging" then
-     batwidget:set_markup( " Bat " .. markup(red, bat_perc) )
- 	else
-     batwidget:set_markup( " Bat " .. markup(blue, bat_perc) )
- 	end
- end
+batwidget = wibox.widget.textbox()
+function update_temp()
+        local f1 = io.open("/sys/class/power_supply/BAT1/charge_now")
+        local f2 = io.open("/sys/class/power_supply/BAT1/charge_full")
+        local f3 = io.open("/sys/class/power_supply/BAT1/status")
+        coretemp_now = tonumber(f1:read("*all")) / tonumber(f2:read("*all"))
+		bat_now.status = f3:read("*all")
+        f1:close()
+        f2:close()
+        f3:close()
+    end
+update_bat(batwidget)
+mytimer = timer({ timeout = 15 })
+
+settings = function()
+    bat_perc = bat_now.perc
+	if bat_now.status == "Discharging" then
+    batwidget:set_markup( " Bat " .. markup(red, bat_perc) )
+	else
+    batwidget:set_markup( " Bat " .. markup(blue, bat_perc) )
+	end
+end
 
 -- Net checker
 netwidget = lain.widgets.net({
