@@ -6,8 +6,6 @@ export PATH=$PATH:~/bin
 export EDITOR="vim"
 unsetopt correct
 setopt vi
-KEYTIMEOUT=1
-
 
 ## aliases
 
@@ -43,6 +41,8 @@ alias pacinfo='pacman -Si'
 #alias lrz='ssh -l ua352aw sun1.lrz-muenchen.de'
 #alias tssh='ssh -l bkoenig coxeter.math.toronto.edu'
 #alias tsftp='sftp math.toronto.edu'
+
+## display vi mode in prompt
 
 function zle-line-init zle-keymap-select {
     RPS1="${${KEYMAP/vicmd/--NOR--}/(main|viins)/--INS--}"
