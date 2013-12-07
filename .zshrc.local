@@ -6,6 +6,7 @@ export PATH=$PATH:~/bin
 export EDITOR="vim"
 unsetopt correct
 setopt vi
+setopt transientrprompt
 
 ## aliases
 
@@ -42,10 +43,10 @@ alias pacinfo='pacman -Si'
 #alias tssh='ssh -l bkoenig coxeter.math.toronto.edu'
 #alias tsftp='sftp math.toronto.edu'
 
-## display vi mode in prompt
+## prompt, including vi mode indicator
 
 function zle-line-init zle-keymap-select {
-    RPS1="${${KEYMAP/vicmd/--NOR--}/(main|viins)/--INS--}"
+	RPS1="${${KEYMAP/vicmd/(NOR)}/(main|viins)/(INS)}"
     RPS2=$RPS1
     zle reset-prompt
 }
