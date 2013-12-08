@@ -309,7 +309,6 @@ inoremap <buffer><silent> ( <C-R>=<SID>Double('(',')')<CR>
 "inoremap <buffer><silent> [ <C-R>=<SID>Double('[',']')<CR>
 inoremap <buffer><silent> [ <C-R>=<SID>CompleteSlash('[',']')<CR>
 inoremap <buffer><silent> $ <C-R>=<SID>Double('$','$')<CR>
-inoremap <buffer><silent> & <C-R>=<SID>DoubleAmpersands()<CR>
 inoremap <buffer><silent> { <C-R>=<SID>CompleteSlash('{','}')<CR>
 inoremap <buffer><silent> \| <C-R>=<SID>CompleteSlash("\|","\|")<CR>
 
