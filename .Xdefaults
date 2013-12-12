@@ -2,7 +2,7 @@
 URxvt.loginShell:	    true
 URxvt.geometry:			100x30
 URxvt.borderLess:		false
-!URxvt.transparent:	  	true
+URxvt.transparent:	  	true
 URxvt.shading:		    40
 URxvt.scrollBar:		true
 URxvt.scrollBar_right:	true
@@ -15,79 +15,23 @@ URxvt.iconFile:		    /usr/share/icons/gnome/32x32/apps/terminal.png
 URxvt.font:				xft:Tamsyn-10.5
 
 !colors
-!URxvt.background:	black
-!URxvt.foreground:	grey75
-!URxvt.colorBD:		green
-!URxvt.colorUL:		red
-!URxvt.color0:		#000000
-!URxvt.color1:		#CC0000
-!URxvt.color2:		#4E9A06
-!URxvt.color3:		#C4A000
-!URxvt.color4:		#3465A4
-!URxvt.color5:		#75507B
-!URxvt.color6:		#34E2E2
-!URxvt.color7:		#D3D7CF
-!URxvt.color8:		#555753
-!URxvt.color9:	   	#EF2929
-!URxvt.color10:		#8AE234
-!URxvt.color11:		#FCE94F
-!URxvt.color12:		#729FCF
-!URxvt.color13:		#AD7FA8
-!URxvt.color14:		#34E2E2
-!URxvt.color15:		#EEEEEC
-
-!solarized
-!#define S_base03 #002b36
-!#define S_base02 #073642
-!#define S_base01 #586e75
-!#define S_base00 #657b83
-!#define S_base0 #839496
-!#define S_base1 #93a1a1
-!#define S_base2 #eee8d5
-!#define S_base3 #fdf6e3
-!#define S_yellow #b58900
-!#define S_orange #cb4b16
-!#define S_red #dc322f
-!#define S_magenta #d33682
-!#define S_violet #6c71c4
-!#define S_blue #268bd2
-!#define S_cyan #2aa198
-!#define S_green #859900
-
-*background: #002b36
-*foreground: #657b83
-*cursorColor: #93a1a1
-*pointerColorBackground:#586e75
-*pointerColorForeground:#93a1a1
-
-!! black dark/light
-*color0: #839496
-*color8: #002b36
-
-!! red dark/light
-*color1: #dc71c4
-*color9: #cb4b16
-
-!! green dark/light
-*color2: #859900
-*color10: #586e75
-
-!! yellow dark/light
-*color3: #b58900
-*color11: #657b83
-
-!! blue dark/light
-*color4: #268bd2
-*color12: #839496
-
-!! magenta dark/light
-*color5: #d33682
-*color13: #6c71c4
-
-!! cyan dark/light
-*color6: #2aa198
-*color14: #93a1a1
-
-!! white dark/light
-*color7: #eee8d5
-*color15: #fdf6e3
+URxvt.background:	black
+URxvt.foreground:	grey75
+URxvt.colorBD:		green
+URxvt.colorUL:		red
+URxvt.color0:		#000000
+URxvt.color1:		#CC0000
+URxvt.color2:		#4E9A06
+URxvt.color3:		#C4A000
+URxvt.color4:		#3465A4
+URxvt.color5:		#75507B
+URxvt.color6:		#34E2E2
+URxvt.color7:		#D3D7CF
+URxvt.color8:		#555753
+URxvt.color9:	   	#EF2929
+URxvt.color10:		#8AE234
+URxvt.color11:		#FCE94F
+URxvt.color12:		#729FCF
+URxvt.color13:		#AD7FA8
+URxvt.color14:		#34E2E2
+URxvt.color15:		#EEEEEC
