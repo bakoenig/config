@@ -155,7 +155,7 @@ netwidget = lain.widgets.net({
     settings = function()
         if net_now.state == "up" then net_state = "On"
         else net_state = "Off" end
-        widget:set_markup( " Net " .. net_state )
+        widget:set_markup( "Net " .. net_state )
     end
 })
 
@@ -297,9 +297,10 @@ end
 
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
+    right_layout:add(slash)
     right_layout:add(netwidget)
 	--if s == 1 then right_layout:add(wibox.widget.systray()) end
-    right_layout:add(separator)
+    right_layout:add(arrow)
     right_layout:add(tempwidget)
     right_layout:add(batwidget)
     right_layout:add(separator)
