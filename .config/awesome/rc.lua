@@ -48,7 +48,7 @@ beautiful.init("/home/bernhard/.config/awesome/themes/steamburn/theme.lua")
 terminal = "urxvt"
 editor = "vim"
 editor_cmd = terminal .. " -e " .. editor
-file_manager = "thunar"
+file_manager = "spacefm"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
