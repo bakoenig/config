@@ -494,8 +494,8 @@ awful.rules.rules = {
     { rule = { class = "Firefox" }, properties = { tag = tags[1][2] } },
     { rule = { class = "Pcmanfm" }, properties = { tag = tags[1][3] } },
     { rule = { class = "Thunar" }, properties = { tag = tags[1][3] } },
+    { rule = { class = "Spacefm" }, properties = { tag = tags[1][3] } },
 --  { rule = { class = "Smplayer" }, properties = { tag = tags[1][5] } },
-    { rule = { class = "Rhythmbox" }, properties = { tag = tags[1][5] } },
 }
 -- }}}
 
