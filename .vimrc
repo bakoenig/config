@@ -73,5 +73,5 @@ inoremap <right> <NOP>
 "" different themes
 
 "colors jellybeans
-"colors hybrid
-colors xoria256
+colors hybrid
+"colors xoria256
