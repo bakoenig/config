@@ -34,7 +34,7 @@ unset markers
 set narrow_tree
 set uncollapse_jump
 set strict_threads
-set sort=threads
+set sort=date
 set sort_aux=last-date-received
 set date_format="%b-%d %R"
 set index_format="%4C | %Z %-30.30F (%-4.4c) [%D] %s"

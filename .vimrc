@@ -27,8 +27,8 @@ set guioptions=acei
 set tabstop=4
 set linebreak
 set autochdir
-syntax on
 filetype plugin indent on
+syntax on
 
 "" configure search
 set nohlsearch

@@ -2,27 +2,24 @@
 # Bindings #
 #----------#
 
-bind index gg 		first-entry
-bind index G  		last-entry
-bind index <esc>M 	current-middle
+bind index,pager p 			noop
+bind index,pager N 			noop
+bind index,pager t 			noop
+bind index,pager T 			noop
+bind editor <space> 		noop 
 
-bind pager i  		exit
-bind pager T 		noop
-bind pager t 		noop
-bind pager t  		toggle-quoted
-bind pager /  		search
-bind pager j 	 	next-line
-bind pager k 	 	previous-line
-bind pager gg 		top
-bind pager G  		bottom
+bind index <esc>M 			current-middle
+
+bind pager t  				toggle-quoted
+bind pager j 	 			next-line
+bind pager k 	 			previous-line
+bind pager gg 				top
+bind pager G  				bottom
+bind pager i  				exit
 
 bind index,pager R 			group-reply
-bind index,pager p 			noop
 bind index,pager <left>		previous-thread
 bind index,pager <right>	next-thread
-bind index,pager N 			noop
-
-bind editor <space> 		noop 
 
 bind browser $		 		check-new
 
@@ -30,6 +27,7 @@ bind browser $		 		check-new
 # Macros #
 #--------#
 
-macro index 		t 		<esc>V<esc>M "collapse and center entry"
+macro index 		t 		":set sort=threads"<enter><esc>V<esc>M "(un)collapse and center entry"
+macro index 		T 		":set sort=date"<enter> "sort by date"
 
 macro index,pager 	\cb 	":unset wait_key; set pipe_decode\n|w3m\n: set wait_key; unset pipe_decode\n" "call w3m to extract URLs" 
