@@ -9,17 +9,17 @@ autocmd QuickFixCmdPost    l* nested lwindow
 "include :,-, and _ in tab completion
 "not necessary if auctex.vim plugin is active
 "
-"set iskeyword+=:,-,_
+"setlocal iskeyword+=:,-,_
 
 "some keybindings for TeXing
-map <f2> 		:w<cr>:make<cr><cr>
-imap <f2> 		<esc>:w<cr>:make<cr><cr>
-nnoremap <f3> 	:!evince %:r.pdf &<cr><cr>
+map <buffer> 		<f2> 		:w<cr>:make<cr><cr>
+imap <buffer> 		<f2> 		<esc>:w<cr>:make<cr><cr>
+nnoremap <buffer> 	<f3> 		:!evince %:r.pdf &<cr><cr>
 
-"these bindings make typing easier on a german keyboard
-map! ß \
-map! ö {
-map! ä }
+"these bindings make tex typing easier on a german keyboard
+map! <buffer> 		ß \
+map! <buffer> 		ö {
+map! <buffer> 		ä }
 
 
 "" what follows is my own extraction from the auctex.vim plugin

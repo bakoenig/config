@@ -55,7 +55,6 @@ imap 		<f2> 		<esc>:w<cr>
 nnoremap 	+ 			:bnext <CR>
 nnoremap 	- 			:bprevious <CR>
 nnoremap 	, 			:
-"nnoremap 	<C-o> 		:Mru 
 nnoremap 	Q 			gqap
 
 " remapping arrow keys
