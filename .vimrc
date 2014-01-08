@@ -60,8 +60,6 @@ nnoremap 	Q 			gqap
 " remapping arrow keys
 "nnoremap 	<up>	gk
 "nnoremap 	<down>	gj
-"inoremap 	<up>	<C-o>gk
-"inoremap 	<down>	<C-o>gj
 noremap <up> <NOP>
 noremap <down> <NOP>
 noremap <left> <NOP>
