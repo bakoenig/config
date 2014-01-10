@@ -47,8 +47,10 @@ beautiful.init("/home/bernhard/.config/awesome/themes/steamburn/theme.lua")
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
 editor = "vim"
-editor_cmd = terminal .. " -e " .. editor
 file_manager = "spacefm"
+gui_editor = "gvim"
+www_browser = "firefox"
+editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -331,8 +333,8 @@ root.buttons(awful.util.table.join(
 
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
-    awful.key({ modkey,           }, "Prior",   awful.tag.viewprev),
-    awful.key({ modkey,           }, "Next",  awful.tag.viewnext),
+    awful.key({ modkey,           }, "Prior", awful.tag.viewprev),
+    awful.key({ modkey,           }, "Next", awful.tag.viewnext),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
 
     awful.key({ modkey,           }, "j",
@@ -345,7 +347,7 @@ globalkeys = awful.util.table.join(
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
         end),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show() end),
+    --awful.key({ modkey,           }, "w", function () mymainmenu:show() end),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
@@ -363,10 +365,9 @@ globalkeys = awful.util.table.join(
 
     -- Standard keys
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
-    awful.key({ modkey,           }, "c", function () awful.util.spawn("chromium") end),
-    awful.key({ modkey,           }, "f", function () awful.util.spawn("firefox") end),
-    awful.key({ modkey,           }, "p", function () awful.util.spawn( file_manager ) end),
-    awful.key({ modkey,           }, "v", function () awful.util.spawn("gvim") end),
+    awful.key({ modkey,           }, "f", function () awful.util.spawn( file_manager ) end),
+    awful.key({ modkey,           }, "e", function () awful.util.spawn( gui_editor ) end),
+    awful.key({ modkey,           }, "w", function () awful.util.spawn( www_browser) end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
