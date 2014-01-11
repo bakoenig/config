@@ -372,7 +372,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
     -- Show menu on modkey "-"
-    awful.key({ modkey,		  }, "-", function () instance = awful.menu.clients({ width=250 }) end),
+	--awful.key({ modkey,		  }, "-", function () instance = awful.menu.clients({ width=250 }) end),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
@@ -396,7 +396,7 @@ globalkeys = awful.util.table.join(
                   awful.util.getdir("cache") .. "/history_eval")
               end),
     -- Menubar
-    awful.key({ modkey }, "u", function() menubar.show() end),
+    awful.key({ modkey }, "-", function() menubar.show() end),
     awful.key({ modkey }, "+", function() awful.util.spawn("dmenu_run") end),
     awful.key({ }, "XF86AudioRaiseVolume", function ()
        awful.util.spawn("amixer set Master 9%+") end),
