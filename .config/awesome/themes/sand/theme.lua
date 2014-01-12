@@ -15,7 +15,7 @@ config = awful.util.getdir("config")
 themedir = config .. "/themes/sand"
 theme.wallpaper = themedir .. "/background.jpg"
 
-theme.font      = "Droid Sans 10"
+theme.font      = "Tamsyn 10.5"
 
 -- sand panel
 theme.fg_normal = "#000000"
@@ -80,8 +80,8 @@ theme.layout_txt_fullscreen         = "[F]"
 theme.layout_txt_magnifier          = "[M]"
 theme.layout_txt_floating           = "[|]"
 
-orange 	= "#7f5200"
-red 	= "#de1e3f"
-blue 	= "#2f3666"
+orange 	= "#cc2a00"
+red 	= "#aa3e48"
+blue 	= "#003366"
 
 return theme
