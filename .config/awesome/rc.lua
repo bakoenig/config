@@ -199,7 +199,7 @@ function update_volume(widget)
    volwidget:set_value(volume/100)
    if string.find(status, "on", 1, true) then
        -- if unmuted
-	   volwidget:set_color("#a4ce8a")
+	   volwidget:set_color("#cccc00")
    else
        -- if muted
 	   volwidget:set_color()
