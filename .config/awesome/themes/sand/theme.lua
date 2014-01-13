@@ -18,7 +18,7 @@ theme.wallpaper = themedir .. "/background.jpg"
 theme.font      = "Tamsyn 10.5"
 
 -- sand panel
-theme.fg_normal = "#2222222"
+theme.fg_normal = "#222222"
 theme.fg_focus  = "#800032"
 theme.fg_urgent = "#990000"
 theme.bg_normal = "#aea79f"
