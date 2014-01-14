@@ -143,14 +143,14 @@ yawn = lain.widgets.yawn(650518,
 batwidget = lain.widgets.bat({
         battery = "BAT1",
 		notify = "off",
-    settings = function()
-        bat_perc = bat_now.perc
+		settings = function()
+        	bat_perc = bat_now.perc
                 if bat_now.status == "Discharging" then
-        widget:set_markup( " Bat " .. markup(red, bat_perc) )
+        	widget:set_markup( " Bat " .. markup(red, bat_perc) )
                 else
-        widget:set_markup( " Bat " .. markup(blue, bat_perc) )
+	        widget:set_markup( " Bat " .. markup(blue, bat_perc) )
                 end
-    end
+    	end
 })
 
 -- Net checker
