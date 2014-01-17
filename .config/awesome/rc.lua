@@ -47,7 +47,7 @@ beautiful.init("/home/bernhard/.config/awesome/themes/sand/theme.lua")
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
 editor = "vim"
-file_manager = "spacefm"
+file_browser = "spacefm"
 gui_editor = "gvim"
 www_browser = "firefox"
 editor_cmd = terminal .. " -e " .. editor
@@ -366,14 +366,15 @@ globalkeys = awful.util.table.join(
 
     -- Standard keys
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
-    awful.key({ modkey,           }, "f", function () awful.util.spawn( file_manager ) end),
+    awful.key({ modkey,           }, "b", function () awful.util.spawn( file_browser ) end),
+    awful.key({ modkey,           }, "c", function () awful.util.spawn( "chromium" ) end),
     awful.key({ modkey,           }, "v", function () awful.util.spawn( gui_editor ) end),
-    awful.key({ modkey,           }, "b", function () awful.util.spawn( www_browser) end),
+    awful.key({ modkey,           }, "x", function () awful.util.spawn( www_browser) end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
     -- Show menu on modkey "-"
-	--awful.key({ modkey,		  }, "-", function () instance = awful.menu.clients({ width=250 }) end),
+	-- awful.key({ modkey,		  }, "-", function () instance = awful.menu.clients({ width=250 }) end),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
@@ -387,9 +388,10 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
     -- Prompt
-    awful.key({ modkey }, "r",     function () mypromptbox[mouse.screen]:run() end),
+    -- awful.key({ modkey }, "r",     function () mypromptbox[mouse.screen]:run() end),
 
-    awful.key({ modkey }, "x",
+    -- awful.key({ modkey }, "x",
+    awful.key({ modkey }, "r",
               function ()
                   awful.prompt.run({ prompt = "Run Lua code: " },
                   mypromptbox[mouse.screen].widget,
@@ -397,7 +399,7 @@ globalkeys = awful.util.table.join(
                   awful.util.getdir("cache") .. "/history_eval")
               end),
     -- Menubar
-    awful.key({ modkey }, "-", function() menubar.show() end),
+    awful.key({ modkey }, "w", function() menubar.show() end),
     awful.key({ modkey }, "+", function() awful.util.spawn("dmenu_run") end),
     awful.key({ }, "XF86AudioRaiseVolume", function ()
        awful.util.spawn("amixer set Master 9%+") end),
