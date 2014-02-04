@@ -25,8 +25,8 @@ theme.bg_normal = "#aea79f"
 theme.bg_focus  = "#aea79f"
 theme.bg_urgent = "#151515"
 theme.bg_wibox  = "#aea79f"
-theme.taglist_bg_focus   	= "#8a8074"
-theme.tasklist_bg_focus     = "#8a8074"
+theme.taglist_bg_focus   	= "#938a7f"
+theme.tasklist_bg_focus     = "#938a7f"
 
 -- dark panel
 --theme.fg_normal = "#D5D5D5"
