@@ -500,6 +500,7 @@ awful.rules.rules = {
     { rule = { class = "Thunar" }, properties = { tag = tags[1][3] } },
     { rule = { class = "Spacefm" }, properties = { tag = tags[1][3] } },
 	{ rule = { class = "Smplayer" }, properties = { tag = tags[1][5] } },
+	{ rule = { class = "Mplayer" }, properties = { tag = tags[1][5] } },
 }
 -- }}}
 
