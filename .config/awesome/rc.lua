@@ -248,7 +248,14 @@ mytasklist.buttons = awful.util.table.join(
                      awful.button({ }, 2, function (c)
                                                   c:kill()
                                           end),
-                     awful.button({ }, 3, function () mymainmenu:toggle() end)
+                     awful.button({ }, 3, function ()
+                                              if instance then
+                                                  instance:hide()
+                                                  instance = nil
+                                              else
+                                                  instance = awful.menu.clients({ width=250 })
+                                              end
+                                          end)
 					  )
 
 for s = 1, screen.count() do
