@@ -16,7 +16,7 @@ theme.font          = "Tamsyn 10.5"
 
 theme.bg_normal     = "#1a1a1a"
 theme.bg_focus      = "#3e3e3e"
-theme.bg_urgent     = "#303030"
+theme.bg_urgent     = "#1a1a1a"
 theme.bg_minimize   = "#444444"
 
 theme.fg_normal     = "#898989"
