@@ -10,8 +10,8 @@ noremap J :tabNext<cr>
 noremap K :tabnext<cr>
 
 " scrolling
-noremap j 7j
-noremap k 7k
+noremap j 10j
+noremap k 10k
 
 " other
 noremap o <C-l>
