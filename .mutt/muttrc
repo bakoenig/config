@@ -10,6 +10,7 @@ set move = no
 set include
 set fast_reply
 set auto_tag = yes
+set sleep_time = 0
 set imap_delim_chars='/'
 set mailcap_path = ~/.mutt/mailcap
 set editor = "vim"
