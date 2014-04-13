@@ -580,6 +580,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- {{{Autorun
---awful.util.spawn_with_shell("nm-applet")
+--awful.util.spawn_with_shell(terminal)
 --awful.util.spawn_with_shell("sleep 2; volumeicon")
 -- }}}
