@@ -37,8 +37,8 @@ set smartcase
 set incsearch
 
 "" CTRL-P plugin
+let g:ctrlp_map = '<f12>'
 let g:ctrlp_cmd = 'CtrlPMRUFiles'
-let g:ctrlp_working_path_mode = '0'
 
 "" Ultisnips
 let g:UltiSnipsListSnippets = '<f4>'
@@ -50,9 +50,10 @@ let &statusline=' %F  %h%w%r%m  %Y [%{&fileformat}][%{strlen(&fenc)?&fenc:&enc}]
 "" spelling
 set spellfile=~/.vim/spellfile.add
 
-"" keybindings
+"" abbreviations
+ab teh the
 
-" some bindings in normal mode
+"" keybindings
 map 		<f2> 		:w<cr>
 imap 		<f2> 		<esc>:w<cr>
 nnoremap 	+ 			:bnext <CR>
@@ -60,7 +61,7 @@ nnoremap 	- 			:bprevious <CR>
 nnoremap 	, 			:
 nnoremap 	Q 			gqap
 
-" remapping arrow keys
+"" remapping arrow keys
 "nnoremap 	<up>	gk
 "nnoremap 	<down>	gj
 noremap <up> <NOP>
@@ -73,7 +74,6 @@ inoremap <left> <NOP>
 inoremap <right> <NOP>
 
 "" different themes
-
-"colors jellybeans
-colors hybrid
+"colors hybrid
+colors hybrid-light
 "colors xoria256
