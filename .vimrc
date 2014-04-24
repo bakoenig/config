@@ -36,12 +36,12 @@ set ignorecase
 set smartcase
 set incsearch
 
+"" Ultisnips
+let g:UltiSnipsListSnippets = '<f11>'
+
 "" CTRL-P plugin
 let g:ctrlp_map = '<f12>'
 let g:ctrlp_cmd = 'CtrlPMRUFiles'
-
-"" Ultisnips
-let g:UltiSnipsListSnippets = '<f4>'
 
 "" status line
 set laststatus=2
