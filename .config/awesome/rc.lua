@@ -95,7 +95,7 @@ tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
     tags[s] = awful.tag({ " Αα " , " Ββ " , " Γγ " , " Δδ " , " Ωω " }, s,
-    { layouts[1] , layouts[8] , layouts[1] , layouts[1] , layouts[7] })
+    { layouts[1] , layouts[8] , layouts[1] , layouts[1] , layouts[5] })
 end
 -- }}}
 
@@ -494,8 +494,6 @@ awful.rules.rules = {
                      focus = awful.client.focus.filter,
                      keys = clientkeys,
                      buttons = clientbuttons } },
-    { rule = { class = "MPlayer" },
-      properties = { floating = true } },
     { rule = { class = "pinentry" },
       properties = { floating = true } },
     { rule = { class = "gimp" },
@@ -506,8 +504,8 @@ awful.rules.rules = {
     { rule = { class = "Pcmanfm" }, properties = { tag = tags[1][3] } },
     { rule = { class = "Thunar" }, properties = { tag = tags[1][3] } },
     { rule = { class = "Spacefm" }, properties = { tag = tags[1][3] } },
-	{ rule = { class = "smplayer" }, properties = { tag = tags[1][5] } },
-	{ rule = { class = "MPlayer" }, properties = { tag = tags[1][5] } },
+	{ rule = { class = "mpv" }, properties = { tag = tags[1][5] } },
+	{ rule = { class = "Vlc" }, properties = { tag = tags[1][5] } },
 }
 -- }}}
 
