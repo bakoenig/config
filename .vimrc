@@ -37,7 +37,7 @@ set smartcase
 set incsearch
 
 "" Ultisnips
-let g:UltiSnipsListSnippets = '<f11>'
+let g:UltiSnipsListSnippets = '<f4>'
 
 "" CTRL-P plugin
 let g:ctrlp_map = '<f12>'
