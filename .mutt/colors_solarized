@@ -72,7 +72,7 @@ color header        color33         color233       "^(Subject)"
 # body -----------------------------------------------------------------
 
 color quoted        color33         color233       
-color quoted1       color37         color233       
+color quoted1       color35         color233       
 color quoted2       color136        color233       
 color quoted3       color160        color233       
 color quoted4       color166        color233       
