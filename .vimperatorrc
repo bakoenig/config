@@ -2,6 +2,8 @@
 
 set titlestring=Firefox
 set complete=l
+set hintchars=hjklasdfgyuiopqwertnmzxcvb
+highlight Hint font-size:100%;color:white;background-color:blue;padding:2px;
 
 "" key mappings
 
