@@ -2,7 +2,8 @@
 """"""""""""""
 " Appearance "
 """"""""""""""
-colorscheme lightgrey
+colorscheme solarized-dark
+"colorscheme lightgrey
 set visualbell
 set hlfind
 set! browser.tabs.closeWindowWithLastTab=false
@@ -24,11 +25,6 @@ set showtabline=multitab
 """""""""""""""
 " Keymappings "
 """""""""""""""
- 
-" toggle ad blocker
-command toggleabp se! extensions.adblockplus.enabled!=extensions.adblockplus.enabled
-map <Leader>a :toggleabp<CR>
-
 map -builtin j 9j
 map -builtin k 9k
 map J :tabNext<cr>
