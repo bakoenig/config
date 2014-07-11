@@ -49,7 +49,7 @@ terminal = "urxvt"
 editor = "vim"
 file_browser = "spacefm"
 gui_editor = "gvim"
-www_browser = "dwb"
+www_browser = "firefox"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -341,8 +341,8 @@ root.buttons(awful.util.table.join(
 
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
-    awful.key({ modkey,           }, "Prior", awful.tag.viewprev),
-    awful.key({ modkey,           }, "Next", awful.tag.viewnext),
+    awful.key({ modkey,           }, "Up", awful.tag.viewprev),
+    awful.key({ modkey,           }, "Down", awful.tag.viewnext),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
 
     awful.key({ modkey,           }, "j",
