@@ -60,6 +60,7 @@ nnoremap 	+ 			:bnext <CR>
 nnoremap 	- 			:bprevious <CR>
 nnoremap 	, 			:
 nnoremap 	Q 			gqap
+inoremap 	<C-e> 		<C-o>A
 
 "" remapping arrow keys
 "nnoremap 	<up>	gk
