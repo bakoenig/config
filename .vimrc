@@ -19,7 +19,6 @@ set wildmenu
 set wildmode=list:longest,full
 set mouse=a
 set hidden 
-set autoindent
 set nobackup
 set noswapfile
 set backspace=2
@@ -29,6 +28,8 @@ set linebreak
 set autochdir
 filetype plugin indent on
 syntax on
+"do not load MatchParen plugin
+let loaded_matchparen = 1
 
 "" configure search
 set nohlsearch
