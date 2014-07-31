@@ -47,7 +47,7 @@ beautiful.init("/home/bernhard/.config/awesome/themes/solarized/theme.lua")
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
 editor = "vim"
-file_browser = "thunar"
+file_browser = "spacefm"
 gui_editor = "gvim"
 www_browser = "firefox"
 editor_cmd = terminal .. " -e " .. editor
