@@ -132,7 +132,7 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 markup = lain.util.markup
 
 -- Weather
-yawn = lain.widgets.yawn(650518,
+yawn = lain.widgets.yawn(12835699,
 {
     settings = function()
         widget:set_markup(" " .. units .. "°C")
