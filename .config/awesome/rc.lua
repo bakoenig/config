@@ -132,12 +132,12 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 markup = lain.util.markup
 
 -- Weather
-yawn = lain.widgets.yawn(12835699,
-{
-    settings = function()
-        widget:set_markup(" " .. units .. "°C")
-    end
-})
+--yawn = lain.widgets.yawn(12835699,
+--{
+--    settings = function()
+--        widget:set_markup(" " .. units .. "°C")
+--    end
+--})
 
 -- Battery
 batwidget = lain.widgets.bat({
@@ -316,9 +316,9 @@ end
     right_layout:add(separator)
     right_layout:add(volmargin)
     right_layout:add(separator)
-    right_layout:add(yawn.icon)
-    right_layout:add(yawn.widget)
-	right_layout:add(spacer)
+    --right_layout:add(yawn.icon)
+    --right_layout:add(yawn.widget)
+	--right_layout:add(spacer)
     right_layout:add(mytextclock)
 
     -- Now bring it all together (with the tasklist in the middle)
