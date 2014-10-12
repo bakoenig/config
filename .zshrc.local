@@ -43,8 +43,10 @@ alias pacinfo='pacman -Si'
 #alias tssh='ssh -l bkoenig coxeter.math.toronto.edu'
 #alias tsftp='sftp math.toronto.edu'
 
-## prompt, including vi mode indicator
+## prompt
+prompt off
 
+## vi mode indicator
 #function zle-line-init zle-keymap-select {
 #	RPS1="${${KEYMAP/vicmd/(NOR)}/(main|viins)/(INS)}"
 #    RPS2=$RPS1
