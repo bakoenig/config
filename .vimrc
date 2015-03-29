@@ -65,14 +65,14 @@ nnoremap 	Q 			gqap
 "" remapping arrow keys
 "nnoremap 	<up>	gk
 "nnoremap 	<down>	gj
-noremap <up> <NOP>
-noremap <down> <NOP>
-noremap <left> <NOP>
-noremap <right> <NOP>
-inoremap <up> <NOP>
-inoremap <down> <NOP>
-inoremap <left> <NOP>
-inoremap <right> <NOP>
+"noremap <up> <NOP>
+"noremap <down> <NOP>
+"noremap <left> <NOP>
+"noremap <right> <NOP>
+"inoremap <up> <NOP>
+"inoremap <down> <NOP>
+"inoremap <left> <NOP>
+"inoremap <right> <NOP>
 
 "" different themes
 "colors hybrid

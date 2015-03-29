@@ -17,9 +17,9 @@ imap <buffer> 		<f2> 		<esc>:w<cr>:make<cr><cr>
 nnoremap <buffer> 	<f3> 		:!evince %:r.pdf &<cr><cr>
 
 "these bindings make tex typing easier on a german keyboard
-map! <buffer> 		ß \
-map! <buffer> 		ö {
-map! <buffer> 		ä }
+"map! <buffer> 		ß \
+"map! <buffer> 		ö {
+"map! <buffer> 		ä }
 
 
 "" what follows is my own extraction from the auctex.vim plugin
