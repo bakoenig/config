@@ -41,7 +41,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 --beautiful.init("/usr/share/awesome/themes/default/theme.lua")
-beautiful.init("/home/bernhard/.config/awesome/themes/solarized/theme.lua")
+beautiful.init("/home/bkoenig/.config/awesome/themes/steamburn/theme.lua")
 -- other themes: blackburn, sand, orbit, steamburn, wombat
 
 -- This is used later as the default terminal and editor to run.
