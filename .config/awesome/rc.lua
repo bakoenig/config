@@ -94,7 +94,7 @@ end
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ " Αα " , " Ββ " , " Γγ " , " Δδ " , " Ωω " }, s,
+    tags[s] = awful.tag({ " Α1α " , " Β2β " , " Γ3γ " , " Δ4δ " , " Ω5ω " }, s,
     { layouts[1] , layouts[8] , layouts[1] , layouts[1] , layouts[5] })
 end
 -- }}}
