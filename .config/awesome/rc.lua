@@ -142,7 +142,7 @@ markup = lain.util.markup
 -- Battery
 batwidget = lain.widgets.bat({
         battery = "BAT1",
-		notify = "off",
+--		notify = "off",
 		settings = function()
         	bat_perc = bat_now.perc
                 if bat_now.status == "Discharging" then
