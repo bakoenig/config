@@ -47,8 +47,6 @@ theme.taglist_squares_unsel         = themes_dir .. "/icons/square_unsel.png"
 
 theme.tasklist_disable_icon         = false
 theme.tasklist_floating             = ""
-theme.tasklist_maximized_horizontal = ""
-theme.tasklist_maximized_vertical   = ""
 
 orange 	= "#f1af5f"
 red 	= "#de5e1e"
