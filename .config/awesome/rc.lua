@@ -501,7 +501,7 @@ awful.rules.rules = {
     -- Set applications to always map on certain tags
     { rule = { class = "Chromium" }, properties = { tag = tags[1][2] } },
     { rule = { class = "Firefox" }, properties = { tag = tags[1][2] } },
-    { rule = { class = "Dwb" }, properties = { tag = tags[1][2] } },
+    { rule = { class = "Opera" }, properties = { tag = tags[1][2] } },
     { rule = { class = "Pcmanfm" }, properties = { tag = tags[1][3] } },
     { rule = { class = "Nautilus" }, properties = { tag = tags[1][3] } },
     { rule = { class = "Spacefm" }, properties = { tag = tags[1][3] } },
