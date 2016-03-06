@@ -42,7 +42,7 @@ end
 -- Themes define colours, icons, and wallpapers
 --beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 beautiful.init("/home/bkoenig/.config/awesome/themes/steamburn/theme.lua")
--- other themes: blackburn, sand, orbit, steamburn, wombat
+-- other themes: sand, orbit, steamburn, wombat
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
@@ -499,7 +499,7 @@ awful.rules.rules = {
     { rule = { class = "gimp" },
       properties = { floating = true } },
     -- Set applications to always map on certain tags
-    { rule = { class = "Chromium" }, properties = { tag = tags[1][2] } },
+    { rule = { class = "chromium" }, properties = { tag = tags[1][2] } },
     { rule = { class = "Firefox" }, properties = { tag = tags[1][2] } },
     { rule = { class = "Opera" }, properties = { tag = tags[1][2] } },
     { rule = { class = "Pcmanfm" }, properties = { tag = tags[1][3] } },
