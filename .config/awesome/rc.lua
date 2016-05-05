@@ -12,6 +12,10 @@ local naughty 	= require("naughty")
 local menubar 	= require("menubar")
 local lain    	= require("lain")
 
+function file_exists(name)
+   local f=io.open(name,"r")
+   if f~=nil then io.close(f) return true else return false end
+end
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -94,7 +98,7 @@ end
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ " Αα1 " , " Ββ2 " , " Γγ3 " , " Δδ4 " , " Ωω800 " }, s,
+    tags[s] = awful.tag({ " Αα1 " , " Ββ2 " , " Γγ3 " , " Δδ4 " , " Ωω800" }, s,
     { layouts[1] , layouts[8] , layouts[1] , layouts[1] , layouts[5] })
 end
 -- }}}
@@ -131,27 +135,49 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 
 markup = lain.util.markup
 
--- Weather
---yawn = lain.widgets.yawn(12835699,
---{
---    settings = function()
---        widget:set_markup(" " .. units .. "°C")
---    end
---})
 
 -- Battery
-batwidget = lain.widgets.bat({
-        battery = "BAT1",
---		notify = "off",
-		settings = function()
-        	bat_perc = bat_now.perc
-                if bat_now.status == "Discharging" then
-        	widget:set_markup( " Bat " .. markup(red, bat_perc) )
-                else
-	        widget:set_markup( " Bat " .. markup(blue, bat_perc) )
-                end
-    	end
-})
+batwidget = wibox.widget.textbox()
+function update_bat(widget)
+		if 
+			file_exists("/sys/class/power_supply/BAT1/capacity") then
+        	local f = io.open("/sys/class/power_supply/BAT1/capacity")
+	   		bat_now = tonumber(f:read("*line"))
+			io.close(f)
+			local g = io.open("/sys/class/power_supply/BAT1/status")
+	   		bat_status = g:read("*line")
+			io.close(g)
+		elseif
+			file_exists("/sys/class/power_supply/BAT0/capacity") then
+        	local f = io.open("/sys/class/power_supply/BAT0/capacity")
+			bat_now = tonumber(f:read("*line"))
+			io.close(f)
+			local g = io.open("/sys/class/power_supply/BAT0/status")
+	   		bat_status = g:read("*line")
+			io.close(g)
+		else
+			bat_now = "N/A"
+			bat_status = "N/A"
+		end
+	if bat_status == "Discharging" then
+			batwidget:set_markup(markup(red, " Bat " .. bat_now))
+	else
+			batwidget:set_markup(markup(blue, " Bat " .. bat_now))
+	end
+
+	if bat_now < 15 then 
+			naughty.notify({ preset = naughty.config.presets.critical,
+                    text = "Battery Low",
+                    title = "Notification",
+					timeout = 10 }) 
+	end
+end
+
+update_bat(batwidget)
+mytimer = timer({ timeout = 10 })
+mytimer:connect_signal("timeout", function () update_bat(batwidget) end)
+
+mytimer:start()
 
 -- Net checker
 netwidget = lain.widgets.net({
@@ -164,15 +190,15 @@ netwidget = lain.widgets.net({
 
 -- Coretemp widget
 tempwidget = wibox.widget.textbox()
-function update_temp()
+function update_temp(widget)
         local f = io.open("/sys/class/thermal/thermal_zone0/temp")
-        coretemp_now = tonumber(f:read("*all")) / 1000
-        f:close()
+        coretemp_now = math.floor((f:read("*all") / 1000) + 0.5)
+        io.close(f)
+		tempwidget:set_markup(markup(orange, coretemp_now .. "°C"))
     end
 update_temp(tempwidget)
 mytimer = timer({ timeout = 10 })
 mytimer:connect_signal("timeout", function () update_temp(tempwidget) end)
-tempwidget:set_markup(markup(orange, coretemp_now .. "°C"))
 mytimer:start()
 
 -- Create a textclock widget
@@ -310,14 +336,12 @@ end
     right_layout:add(arrow)
     right_layout:add(netwidget)
 	--if s == 1 then right_layout:add(wibox.widget.systray()) end
-    right_layout:add(separator)
+    right_layout:add(arrow)
     right_layout:add(tempwidget)
     right_layout:add(batwidget)
-    right_layout:add(separator)
+    right_layout:add(arrow)
     right_layout:add(volmargin)
-    right_layout:add(separator)
-    --right_layout:add(yawn.icon)
-    --right_layout:add(yawn.widget)
+    right_layout:add(arrow)
 	--right_layout:add(spacer)
     right_layout:add(mytextclock)
 
