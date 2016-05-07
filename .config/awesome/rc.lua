@@ -176,14 +176,40 @@ mytimer = timer({ timeout = 10 })
 mytimer:connect_signal("timeout", function () update_bat(batwidget) end)
 mytimer:start()
 
--- Net checker
-netwidget = lain.widgets.net({
-    settings = function()
-        if net_now.state == "up" then net_state = "On"
-        else net_state = "Off" end
-        widget:set_markup( "Net " .. net_state )
-    end
-})
+-- Net widget
+
+netwidget = wibox.widget.textbox()
+function update_net(widget)
+        local fnet = io.popen("iwgetid -r")
+		local ssid_now = fnet:read("*all")
+        fnet.close()
+		local wsget = io.popen("ip link show | cut -d' ' -f2,9")
+		local ws = wsget:read("*all")
+        ws = ws:match("%w+: UP") or ws:match("ppp%w+: UNKNOWN")
+		wsget.close()
+
+        if ws then 
+				netwidget:set_markup(string.sub(ssid_now,1,10) .. '<span color="#00b100"> Connected</span>')
+        else
+				netwidget:set_markup('<span color="gray">No Network</span>')
+		end
+
+	end
+update_net(netwidget)
+mytimer = timer({ timeout = 10 })
+mytimer:connect_signal("timeout", function () update_net(netwidget) end)
+mytimer:start()
+
+
+
+---- Net checker
+--netwidget = lain.widgets.net({
+--    settings = function()
+--        if net_now.state == "up" then net_state = "On"
+--        else net_state = "Off" end
+--        widget:set_markup( "Net " .. net_state )
+--    end
+--})
 
 -- Coretemp widget
 tempwidget = wibox.widget.textbox()
