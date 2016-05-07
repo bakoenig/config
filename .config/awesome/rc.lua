@@ -3,14 +3,16 @@ local gears 	= require("gears")
 local awful 	= require("awful")
 awful.rules 	= require("awful.rules")
 require("awful.autofocus")
+
 -- Widget and layout library
 local wibox 	= require("wibox")
+
 -- Theme handling library
 local beautiful = require("beautiful")
+
 -- Notification library
 local naughty 	= require("naughty")
 local menubar 	= require("menubar")
-local lain    	= require("lain")
 
 function file_exists(name)
    local f=io.open(name,"r")
@@ -199,17 +201,6 @@ update_net(netwidget)
 mytimer = timer({ timeout = 10 })
 mytimer:connect_signal("timeout", function () update_net(netwidget) end)
 mytimer:start()
-
-
-
----- Net checker
---netwidget = lain.widgets.net({
---    settings = function()
---        if net_now.state == "up" then net_state = "On"
---        else net_state = "Off" end
---        widget:set_markup( "Net " .. net_state )
---    end
---})
 
 -- Coretemp widget
 tempwidget = wibox.widget.textbox()
