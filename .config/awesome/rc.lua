@@ -133,8 +133,6 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 
 -- {{{ Wibox
 
-markup = lain.util.markup
-
 
 -- Battery
 batwidget = wibox.widget.textbox()
@@ -160,9 +158,9 @@ function update_bat(widget)
 			bat_status = "N/A"
 		end
 	if bat_status == "Discharging" then
-			batwidget:set_markup(markup(red, " Bat " .. bat_now))
+			batwidget:set_markup('<span color="red"> Bat ' .. bat_now .. '</span>')
 	else
-			batwidget:set_markup(markup(blue, " Bat " .. bat_now))
+			batwidget:set_markup('<span color="#7788af"> Bat ' .. bat_now .. '</span>')
 	end
 
 	if bat_now < 15 then 
@@ -176,7 +174,6 @@ end
 update_bat(batwidget)
 mytimer = timer({ timeout = 10 })
 mytimer:connect_signal("timeout", function () update_bat(batwidget) end)
-
 mytimer:start()
 
 -- Net checker
@@ -194,7 +191,7 @@ function update_temp(widget)
         local f = io.open("/sys/class/thermal/thermal_zone0/temp")
         coretemp_now = math.floor((f:read("*all") / 1000) + 0.5)
         io.close(f)
-		tempwidget:set_markup(markup(orange, coretemp_now .. "°C"))
+		tempwidget:set_markup('<span color="orange">' .. coretemp_now .. '°C </span>')
     end
 update_temp(tempwidget)
 mytimer = timer({ timeout = 10 })
@@ -202,7 +199,7 @@ mytimer:connect_signal("timeout", function () update_temp(tempwidget) end)
 mytimer:start()
 
 -- Create a textclock widget
-mytextclock = awful.widget.textclock(markup(blue, "%a %d %b") .. " " .. markup(red, "%H:%M") .. " ")
+mytextclock = awful.widget.textclock('<span color="#3e96de">%a %d %b</span> <span color="#de5e1e">%H:%M</span> ')  
 mytextclock:buttons(awful.util.table.join(awful.button({ }, 3, function () awful.util.spawn_with_shell("urxvt -e sh ~/bin/calendar.sh") end)))
 
 -- Volume widget
