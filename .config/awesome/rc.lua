@@ -183,7 +183,8 @@ mytimer:start()
 netwidget = wibox.widget.textbox()
 function update_net(widget)
         local fnet = io.popen("iwgetid -r")
-		local ssid_now = fnet:read("*all")
+		local ssid_now = fnet:read("*line")
+		if ssid_now == nil or ssid_now == '' then ssid_now = "Unknown" end
         fnet.close()
 		local wsget = io.popen("ip link show | cut -d' ' -f2,9")
 		local ws = wsget:read("*all")
@@ -191,7 +192,7 @@ function update_net(widget)
 		wsget.close()
 
         if ws then 
-				netwidget:set_markup(string.sub(ssid_now,1,10) .. '<span color="#00b100"> Connected</span>')
+				netwidget:set_markup(string.sub(ssid_now,1,math.min(10,string.len(ssid_now))) .. '<span color="#00b100"> Connected</span>')
         else
 				netwidget:set_markup('<span color="gray">No Network</span>')
 		end
