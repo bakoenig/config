@@ -235,6 +235,7 @@ function update_volume(widget)
    local status = fd:read("*all")
    fd:close()
    local volume = string.match(status, "(%d?%d?%d)%%")
+   if volume == nil then volume = 0 end
    volume = string.format("% 3d", volume)
    status = string.match(status, "%[(o[^%]]*)%]")
    volwidget:set_value(volume/100)
