@@ -53,7 +53,7 @@ beautiful.init("/home/bkoenig/.config/awesome/themes/steamburn/theme.lua")
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
 editor = "vim"
-file_browser = "thunar"
+file_browser = "pcmanfm"
 gui_editor = "gvim"
 www_browser = "firefox"
 editor_cmd = terminal .. " -e " .. editor
