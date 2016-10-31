@@ -539,7 +539,7 @@ awful.rules.rules = {
     { rule = { class = "gimp" },
       properties = { floating = true } },
     -- Set applications to always map on certain tags
-    { rule = { class = "chromium" }, properties = { tag = tags[1][2] } },
+    { rule = { class = "Chromium" }, properties = { tag = tags[1][2] } },
     { rule = { class = "Firefox" }, properties = { tag = tags[1][2] } },
     { rule = { class = "Opera" }, properties = { tag = tags[1][2] } },
     { rule = { class = "Pcmanfm" }, properties = { tag = tags[1][3] } },
