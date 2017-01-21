@@ -221,32 +221,25 @@ mytextclock = awful.widget.textclock('<span color="#3e96de">%a %d %b</span> <spa
 mytextclock:buttons(awful.util.table.join(awful.button({ }, 3, function () awful.util.spawn_with_shell("urxvt -e sh ~/bin/calendar.sh") end)))
 
 -- Volume widget
-volwidget = awful.widget.progressbar()
-volmargin = wibox.layout.margin(volwidget)
-volwidget:set_width(11)
-volwidget:set_vertical(true)
-volwidget:set_ticks(true)
-volmargin:set_top(1)
-volmargin:set_bottom(1)
-volwidget:set_background_color("#123456")
-
+volwidget = wibox.widget.textbox()
 function update_volume(widget)
    local fd = io.popen("amixer sget Master")
    local status = fd:read("*all")
    fd:close()
    local volume = string.match(status, "(%d?%d?%d)%%")
    if volume == nil then volume = 0 end
-   volume = string.format("% 3d", volume)
+   volume = string.format("%2d", volume)
+   if volume == "100" then volume = "mx" end
    status = string.match(status, "%[(o[^%]]*)%]")
-   volwidget:set_value(volume/100)
    if string.find(status, "on", 1, true) then
        -- if unmuted
-	   volwidget:set_color("#66a266")
+	   volwidget:set_markup(volume)
    else
        -- if muted
-	   volwidget:set_color()
-   end
-end
+	   volwidget:set_markup('<span color="red">' .. volume .. '</span>')
+		end
+
+	end
 update_volume(volwidget)
 mytimer = timer({ timeout = 2 })
 mytimer:connect_signal("timeout", function () update_volume(volwidget) end)
@@ -256,7 +249,7 @@ volwidget:buttons(awful.util.table.join(
 --awful.button({ }, 2, function ()
 --awful.util.spawn_with_shell("urxvt -e alsamixer") end),
 awful.button({ }, 3, function ()
-awful.util.spawn_with_shell("amixer set Master toggle") end),
+awful.util.spawn_with_shell("amixer set Master toggle; amixer set Speaker unmute") end),
 awful.button({ }, 4, function ()
 awful.util.spawn("amixer set Master 2%+") end),
 awful.button({ }, 5, function ()
@@ -356,7 +349,7 @@ end
     right_layout:add(tempwidget)
     right_layout:add(batwidget)
     right_layout:add(arrow)
-    right_layout:add(volmargin)
+    right_layout:add(volwidget)
     right_layout:add(arrow)
 	--right_layout:add(spacer)
     right_layout:add(mytextclock)
