@@ -14,7 +14,7 @@ Bundle 'kien/ctrlp.vim'
 set autoindent
 set nobackup
 set backspace=2
-set guioptions=acei
+set guioptions=aceimT
 set wildmenu
 set wildmode=list:longest,full
 set mouse=a
@@ -22,7 +22,6 @@ set hidden
 set nobackup
 set noswapfile
 set backspace=2
-set guioptions=acei
 set tabstop=4
 set linebreak
 set autochdir
