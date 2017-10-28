@@ -42,7 +42,9 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 --beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-beautiful.init(gears.filesystem.get_themes_dir() .. "zenburn/theme.lua")
+--beautiful.init(gears.filesystem.get_themes_dir() .. "zenburn/theme.lua")
+beautiful.init("/home/bkoenig/.config/awesome/themes/steamburn/theme.lua")
+
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
@@ -119,9 +121,21 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock()
+mytextclock = awful.widget.textclock('<span color="#3e96de">%a %d %b</span> <span color="#de5e1e">%H:%M</span> ')  
+mytextclock:buttons(awful.util.table.join(awful.button({ }, 3, function () awful.util.spawn_with_shell("urxvt -e sh ~/bin/calendar.sh") end)))
+
+-- Separators
+spacer = wibox.widget.textbox("  ")
+separator = wibox.widget.textbox(" | ")
+arrow = wibox.widget.textbox(" >> ")
+slash = wibox.widget.textbox(" // ")
 
 -- Create a wibox for each screen and add it
+mywibox = {}
+mypromptbox = {}
+mylayoutbox = {}
+txtlayoutbox = {}
+mytaglist = {}
 local taglist_buttons = gears.table.join(
                     awful.button({ }, 1, function(t) t:view_only() end),
                     awful.button({ modkey }, 1, function(t)
@@ -183,8 +197,14 @@ awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
     set_wallpaper(s)
 
-    -- Each screen has its own tag table.
-    awful.tag({ " alpha ", " beta  ", " gamma ", " delta ", " omega " }, s, awful.layout.layouts[1])
+-- Define a tag table which hold all screen tags.
+tags = {}
+for s = 1, screen.count() do
+    --Each screen has its own tag table.
+    tags[s] = awful.tag({ " alpha " , " beta  " , " gamma " , " delta " , " omega " }, s,
+    { awful.layout.layouts[1] , awful.layout.layouts[10] , awful.layout.layouts[1] , awful.layout.layouts[1] , awful.layout.layouts[5] })
+end
+-- }}}
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -205,6 +225,8 @@ awful.screen.connect_for_each_screen(function(s)
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s })
 
+-- }}}
+
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
@@ -217,10 +239,9 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
+            s.mylayoutbox, spacer,
             wibox.widget.systray(),
             mytextclock,
-            s.mylayoutbox,
         },
     }
 end)
@@ -317,10 +338,11 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
-              {description = "run prompt", group = "launcher"}),
+    awful.key({ modkey }, "x",     function() awful.util.spawn("dmenu_run") end, --)
+				--function () awful.screen.focused().mypromptbox:run() end,
+              {description = "run dmenu", group = "launcher"}),
 
-    awful.key({ modkey }, "x",
+    awful.key({ modkey }, "r",
               function ()
                   awful.prompt.run {
                     prompt       = "Run Lua code: ",
@@ -330,7 +352,16 @@ globalkeys = gears.table.join(
                   }
               end,
               {description = "lua execute prompt", group = "awesome"}),
-    -- Menubar
+
+	--Volume
+	awful.key({ }, "XF86AudioRaiseVolume", function ()
+    awful.util.spawn("amixer set Master 9%+") end),
+    awful.key({ }, "XF86AudioLowerVolume", function ()
+    awful.util.spawn("amixer set Master 9%-") end),
+    awful.key({ }, "XF86AudioMute", function ()
+    awful.util.spawn("amixer sset Master toggle") end),
+
+	-- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"})
 )
@@ -454,32 +485,6 @@ awful.rules.rules = {
      }
     },
 
-    -- Floating clients.
-    { rule_any = {
-        instance = {
-          "DTA",  -- Firefox addon DownThemAll.
-          "copyq",  -- Includes session name in class.
-        },
-        class = {
-          "Arandr",
-          "Gpick",
-          "Kruler",
-          "MessageWin",  -- kalarm.
-          "Sxiv",
-          "Wpa_gui",
-          "pinentry",
-          "veromix",
-          "xtightvncviewer"},
-
-        name = {
-          "Event Tester",  -- xev.
-        },
-        role = {
-          "AlarmWindow",  -- Thunderbird's calendar.
-          "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
-        }
-      }, properties = { floating = true }},
-
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
       }, properties = { titlebars_enabled = true }
@@ -488,6 +493,20 @@ awful.rules.rules = {
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- { rule = { class = "Firefox" },
     --   properties = { screen = 1, tag = "2" } },
+	
+    { rule = { class = "pinentry" },
+      properties = { floating = true } },
+    { rule = { class = "gimp" },
+      properties = { floating = true } },
+    -- Set applications to always map on certain tags
+	
+    { rule = { class = "Chromium" }, properties = { tag = tags[1][2] } },
+    { rule = { class = "Firefox" }, properties = { tag = tags[1][2] } },
+    { rule = { class = "Opera" }, properties = { tag = tags[1][2] } },
+    { rule = { class = "Pcmanfm" }, properties = { tag = tags[1][3] } },
+    { rule = { class = "Thunar" }, properties = { tag = tags[1][3] } },
+    { rule = { class = "Spacefm" }, properties = { tag = tags[1][3] } },
+	{ rule = { class = "Vlc" }, properties = { tag = tags[1][5] } },
 }
 -- }}}
 
