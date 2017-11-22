@@ -14,6 +14,12 @@ local hotkeys_popup = require("awful.hotkeys_popup").widget
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+
+function file_exists(name)
+   local f=io.open(name,"r")
+   if f~=nil then io.close(f) return true else return false end
+end
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -62,15 +68,15 @@ modkey = "Mod4"
 awful.layout.layouts = {
     awful.layout.suit.floating,
     awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
+    --awful.layout.suit.tile.left,
+    --awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
     awful.layout.suit.fair,
-    awful.layout.suit.fair.horizontal,
-    awful.layout.suit.spiral,
-    awful.layout.suit.spiral.dwindle,
+    --awful.layout.suit.fair.horizontal,
+    --awful.layout.suit.spiral,
+    --awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
-    awful.layout.suit.max.fullscreen,
+    --awful.layout.suit.max.fullscreen,
     awful.layout.suit.magnifier,
     awful.layout.suit.corner.nw,
     -- awful.layout.suit.corner.ne,
@@ -115,6 +121,126 @@ mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
+
+-- Battery
+batwidget = wibox.widget.textbox()
+function update_bat(widget)
+		if 
+			file_exists("/sys/class/power_supply/BAT1/capacity") then
+        	local f = io.open("/sys/class/power_supply/BAT1/capacity")
+	   		bat_now = tonumber(f:read("*line"))
+			io.close(f)
+			local g = io.open("/sys/class/power_supply/BAT1/status")
+	   		bat_status = g:read("*line")
+			io.close(g)
+		elseif
+			file_exists("/sys/class/power_supply/BAT0/capacity") then
+        	local f = io.open("/sys/class/power_supply/BAT0/capacity")
+			bat_now = tonumber(f:read("*line"))
+			io.close(f)
+			local g = io.open("/sys/class/power_supply/BAT0/status")
+	   		bat_status = g:read("*line")
+			io.close(g)
+		else
+			bat_now = "N/A"
+			bat_status = "N/A"
+		end
+	if bat_status == "Discharging" then
+			batwidget:set_markup('<span color="red"> Bat ' .. bat_now .. '</span>')
+	else
+			batwidget:set_markup('<span color="#7788af"> Bat ' .. bat_now .. '</span>')
+	end
+
+	if bat_now < 15 then 
+			naughty.notify({ preset = naughty.config.presets.critical,
+                    text = "Battery Low",
+                    title = "Notification",
+					timeout = 10 }) 
+	end
+end
+
+update_bat(batwidget)
+mytimer = timer({ timeout = 10 })
+mytimer:connect_signal("timeout", function () update_bat(batwidget) end)
+mytimer:start()
+
+-- Net widget
+
+netwidget = wibox.widget.textbox()
+function update_net(widget)
+        local fnet = io.popen("iwgetid -r")
+		local ssid_now = fnet:read("*line")
+		if ssid_now == nil or ssid_now == '' then ssid_now = "Unknown" end
+        fnet.close()
+		local wsget = io.popen("ip link show | cut -d' ' -f2,9")
+		local ws = wsget:read("*all")
+        ws = ws:match("%w+: UP") or ws:match("ppp%w+: UNKNOWN")
+		wsget.close()
+
+        if ws then 
+				netwidget:set_markup(string.sub(ssid_now,1,math.min(10,string.len(ssid_now))) .. '<span color="#00b100"> Connected</span>')
+        else
+				netwidget:set_markup('<span color="gray">No Network</span>')
+		end
+
+	end
+update_net(netwidget)
+mytimer = timer({ timeout = 10 })
+mytimer:connect_signal("timeout", function () update_net(netwidget) end)
+mytimer:start()
+
+-- Coretemp widget
+tempwidget = wibox.widget.textbox()
+function update_temp(widget)
+        local f = io.open("/sys/class/thermal/thermal_zone0/temp")
+        coretemp_now = math.floor((f:read("*all") / 1000) + 0.5)
+        io.close(f)
+		tempwidget:set_markup('<span color="orange">' .. coretemp_now .. '°C </span>')
+    end
+update_temp(tempwidget)
+mytimer = timer({ timeout = 10 })
+mytimer:connect_signal("timeout", function () update_temp(tempwidget) end)
+mytimer:start()
+
+-- Create a textclock widget
+mytextclock = awful.widget.textclock('<span color="#3e96de">%a %d %b</span> <span color="#de5e1e">%H:%M</span> ')  
+mytextclock:buttons(awful.util.table.join(awful.button({ }, 3, function () awful.util.spawn_with_shell("urxvt -e sh ~/bin/calendar.sh") end)))
+
+-- Volume widget
+volwidget = wibox.widget.textbox()
+function update_volume(widget)
+   local fd = io.popen("amixer sget Master")
+   local status = fd:read("*all")
+   fd:close()
+   local volume = string.match(status, "(%d?%d?%d)%%")
+   if volume == nil then volume = 0 end
+   volume = string.format("%2d", volume)
+   if volume == "100" then volume = "mx" end
+   status = string.match(status, "%[(o[^%]]*)%]")
+   if string.find(status, "on", 1, true) then
+       -- if unmuted
+	   volwidget:set_markup(volume)
+   else
+       -- if muted
+	   volwidget:set_markup('<span color="red">' .. volume .. '</span>')
+		end
+
+	end
+update_volume(volwidget)
+mytimer = timer({ timeout = 2 })
+mytimer:connect_signal("timeout", function () update_volume(volwidget) end)
+mytimer:start()
+
+volwidget:buttons(awful.util.table.join(
+--awful.button({ }, 2, function ()
+--awful.util.spawn_with_shell("urxvt -e alsamixer") end),
+awful.button({ }, 3, function ()
+awful.util.spawn_with_shell("amixer set Master toggle; amixer set Speaker unmute") end),
+awful.button({ }, 4, function ()
+awful.util.spawn("amixer set Master 2%+") end),
+awful.button({ }, 5, function ()
+awful.util.spawn("amixer set Master 2%-") end)
+))
 
 -- Keyboard map indicator and switcher
 mykeyboardlayout = awful.widget.keyboardlayout()
@@ -202,7 +328,7 @@ tags = {}
 for s = 1, screen.count() do
     --Each screen has its own tag table.
     tags[s] = awful.tag({ " alpha " , " beta  " , " gamma " , " delta " , " omega " }, s,
-    { awful.layout.layouts[1] , awful.layout.layouts[10] , awful.layout.layouts[1] , awful.layout.layouts[1] , awful.layout.layouts[5] })
+    { awful.layout.layouts[1] , awful.layout.layouts[5] , awful.layout.layouts[5] , awful.layout.layouts[1] , awful.layout.layouts[1] })
 end
 -- }}}
 
@@ -234,12 +360,13 @@ end
             layout = wibox.layout.fixed.horizontal,
             mylauncher,
             s.mytaglist,
-            s.mypromptbox,
+            s.mypromptbox, arrow,
+			s.mylayoutbox, spacer,
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            s.mylayoutbox, spacer,
+            netwidget, batwidget, spacer, volwidget, spacer, 
             wibox.widget.systray(),
             mytextclock,
         },
@@ -338,7 +465,7 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    awful.key({ modkey }, "x",     function() awful.util.spawn("dmenu_run") end, --)
+    awful.key({ modkey }, "+",     function() awful.util.spawn("dmenu_run") end, --)
 				--function () awful.screen.focused().mypromptbox:run() end,
               {description = "run dmenu", group = "launcher"}),
 
