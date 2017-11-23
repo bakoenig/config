@@ -366,7 +366,7 @@ end
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            netwidget, batwidget, spacer, volwidget, spacer, 
+            arrow, netwidget, batwidget, spacer, volwidget, spacer, 
             wibox.widget.systray(),
             mytextclock,
         },
