@@ -8,6 +8,7 @@ unsetopt correct
 setopt vi
 setopt transientrprompt
 set hist_ignore_all_dups
+export HISTSIZE=2000
 
 ## aliases
 
