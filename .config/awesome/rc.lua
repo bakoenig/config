@@ -54,6 +54,10 @@ beautiful.init("/home/bkoenig/.config/awesome/themes/steamburn/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
+editor = "vim"
+file_browser = "thunar"
+gui_editor = "gvim"
+www_browser = "firefox"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -431,6 +435,14 @@ globalkeys = gears.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
+    awful.key({ modkey,           }, "b", function () awful.spawn(file_browser) end,
+              {description = "open file browser", group = "launcher"}),
+    awful.key({ modkey,           }, "c", function () awful.spawn("chromium") end,
+              {description = "open Chromium", group = "launcher"}),
+    awful.key({ modkey,           }, "v", function () awful.spawn(gui_editor) end,
+              {description = "open Editor", group = "launcher"}),
+    awful.key({ modkey,           }, "x", function () awful.spawn(www_browser) end,
+              {description = "open Internet Browser", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
