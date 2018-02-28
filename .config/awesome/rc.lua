@@ -75,17 +75,17 @@ awful.layout.layouts = {
     --awful.layout.suit.tile.left,
     --awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
-    awful.layout.suit.fair,
+    --awful.layout.suit.fair,
     --awful.layout.suit.fair.horizontal,
     --awful.layout.suit.spiral,
     --awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
     --awful.layout.suit.max.fullscreen,
     awful.layout.suit.magnifier,
-    awful.layout.suit.corner.nw,
-    -- awful.layout.suit.corner.ne,
-    -- awful.layout.suit.corner.sw,
-    -- awful.layout.suit.corner.se,
+    --awful.layout.suit.corner.nw,
+    --awful.layout.suit.corner.ne,
+    --awful.layout.suit.corner.sw,
+    --awful.layout.suit.corner.se,
 }
 -- }}}
 
@@ -129,7 +129,7 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- Battery
 batwidget = wibox.widget.textbox()
 function update_bat(widget)
-		if 
+		if
 			file_exists("/sys/class/power_supply/BAT1/capacity") then
         	local f = io.open("/sys/class/power_supply/BAT1/capacity")
 	   		bat_now = tonumber(f:read("*line"))
@@ -155,11 +155,11 @@ function update_bat(widget)
 			batwidget:set_markup('<span color="#7788af"> Bat ' .. bat_now .. '</span>')
 	end
 
-	if bat_now < 15 then 
+	if bat_now < 15 then
 			naughty.notify({ preset = naughty.config.presets.critical,
                     text = "Battery Low",
                     title = "Notification",
-					timeout = 10 }) 
+					timeout = 10 })
 	end
 end
 
@@ -181,7 +181,7 @@ function update_net(widget)
         ws = ws:match("%w+: UP") or ws:match("ppp%w+: UNKNOWN")
 		wsget.close()
 
-        if ws then 
+        if ws then
 				netwidget:set_markup(string.sub(ssid_now,1,math.min(10,string.len(ssid_now))) .. '<span color="#00b100"> Connected</span>')
         else
 				netwidget:set_markup('<span color="gray">No Network</span>')
@@ -207,7 +207,7 @@ mytimer:connect_signal("timeout", function () update_temp(tempwidget) end)
 mytimer:start()
 
 -- Create a textclock widget
-mytextclock = awful.widget.textclock('<span color="#3e96de">%a %d %b</span> <span color="#de5e1e">%H:%M</span> ')  
+mytextclock = awful.widget.textclock('<span color="#3e96de">%a %d %b</span> <span color="#de5e1e">%H:%M</span> ')
 mytextclock:buttons(awful.util.table.join(awful.button({ }, 3, function () awful.util.spawn_with_shell("urxvt -e sh ~/bin/calendar.sh") end)))
 
 -- Volume widget
@@ -251,7 +251,7 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = awful.widget.textclock('<span color="#3e96de">%a %d %b</span> <span color="#de5e1e">%H:%M</span> ')  
+mytextclock = awful.widget.textclock('<span color="#3e96de">%a %d %b</span> <span color="#de5e1e">%H:%M</span> ')
 mytextclock:buttons(awful.util.table.join(awful.button({ }, 3, function () awful.util.spawn_with_shell("urxvt -e sh ~/bin/calendar.sh") end)))
 
 -- Separators
@@ -370,7 +370,7 @@ end
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            arrow, netwidget, batwidget, spacer, volwidget, spacer, 
+            arrow, netwidget, batwidget, spacer, volwidget, spacer,
             wibox.widget.systray(),
             mytextclock,
         },
@@ -632,13 +632,13 @@ awful.rules.rules = {
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- { rule = { class = "Firefox" },
     --   properties = { screen = 1, tag = "2" } },
-	
+
     { rule = { class = "pinentry" },
       properties = { floating = true } },
     { rule = { class = "gimp" },
       properties = { floating = true } },
     -- Set applications to always map on certain tags
-	
+
     { rule = { class = "Chromium" }, properties = { tag = tags[1][2] } },
     { rule = { class = "Firefox" }, properties = { tag = tags[1][2] } },
     { rule = { class = "Opera" }, properties = { tag = tags[1][2] } },

@@ -62,6 +62,6 @@ nnoremap 	, 			:
 nnoremap 	Q 			gqap
 
 "" different themes
-"colors hybrid
-colors hybrid-light
+colors hybrid
+"colors hybrid-light
 "colors xoria256
