@@ -13,16 +13,7 @@ export HISTSIZE=2000
 ## aliases
 
 alias timesync='sudo ntpd -qg; sudo hwclock -w'
-
-# package commands debian
-
-#alias sup="sudo aptitude update;sudo aptitude safe-upgrade"
-#alias sin="sudo aptitude install"
-#alias apshow="aptitude show"
-#alias aps="aptitude search"
-#alias srem="sudo aptitude remove"
-#alias sarem="sudo apt-get autoremove"
-#alias saclean="sudo aptitude autoclean"
+alias emacs='emacs -nw'
 
 # package commands arch
 
@@ -34,28 +25,8 @@ alias pacclear='sudo pacman -Scc'
 alias pacautorem='sudo pacman -Rns $(pacman -Qqtd)'
 alias pacinfo='pacman -Si'
 
-# backup
-
-#alias backup-pub='scp -r publications/ bkoenig@math.toronto.edu:kubuntu/'
-#alias backup-vita='scp -r vita/ bkoenig@math.toronto.edu:kubuntu/'
-
-# logins
-
-#alias lrz='ssh -l ua352aw sun1.lrz-muenchen.de'
-#alias tssh='ssh -l bkoenig coxeter.math.toronto.edu'
-#alias tsftp='sftp math.toronto.edu'
-
 ## prompt
 prompt grml
-
-## vi mode indicator
-#function zle-line-init zle-keymap-select {
-#	RPS1="${${KEYMAP/vicmd/(NOR)}/(main|viins)/(INS)}"
-#    RPS2=$RPS1
-#    zle reset-prompt
-#}
-#zle -N zle-line-init
-#zle -N zle-keymap-select
 
 ## welcome screen
 
