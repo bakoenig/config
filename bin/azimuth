@@ -1,0 +1,48 @@
+#!/bin/zsh
+zmodload zsh/mathfunc
+echo Please, enter declination
+read dDECL
+echo Please, enter latitude
+read dLAT
+echo Please, enter visual angle
+read dHS
+pi=$[4*atan(1.0)]
+DECL=$[pi*dDECL/180]
+LAT=$[pi*dLAT/180]
+HS=$[pi*dHS/180]
+
+dHW=$[dHS-(1/(60*tan(pi*(HS+(7.31/(HS+4.4)))/180)))]
+dHWs=dHW-0.267
+
+HW=$[pi*dHW/180]
+HWs=$[pi*dHWs/180]
+
+alpha=$[acos((sin(LAT)-sin(DECL)*sin(HS))/(cos(DECL)*cos(HS)))]
+azimuth=$[acos((sin(DECL)-sin(LAT)*sin(HS))/(cos(LAT)*cos(HS)))]
+dalpha=$[alpha*180/pi]
+dazimuth=$[azimuth*180/pi]
+
+alpham=$[acos((sin(LAT)-sin(DECL)*sin(HW))/(cos(DECL)*cos(HW)))]
+azimuthm=$[acos((sin(DECL)-sin(LAT)*sin(HW))/(cos(LAT)*cos(HW)))]
+dalpham=$[alpham*180/pi]
+dazimuthm=$[azimuthm*180/pi]
+
+alphams=$[acos((sin(LAT)-sin(DECL)*sin(HWs))/(cos(DECL)*cos(HWs)))]
+azimuthms=$[acos((sin(DECL)-sin(LAT)*sin(HWs))/(cos(LAT)*cos(HWs)))]
+dalphams=$[alphams*180/pi]
+dazimuthms=$[azimuthms*180/pi]
+
+echo
+echo -e '\033[1;35m'Geometric values
+echo rising angle="$dalpha"
+echo azimuth angle="$dazimuth"; tput sgr0
+echo
+echo -e '\033[1;31m'Including refraction, flexible formula
+echo rising angle="$dalpham"
+echo azimuth angle="$dazimuthm"; tput sgr0
+echo
+echo -e '\033[1;33m'Upper boundary of "16'" sun disc
+echo rising angle="$dalphams"
+echo azimuth angle="$dazimuthms"; tput sgr0
+echo
+
