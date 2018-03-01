@@ -332,7 +332,7 @@ tags = {}
 for s = 1, screen.count() do
     --Each screen has its own tag table.
     tags[s] = awful.tag({ " alpha " , " beta  " , " gamma " , " delta " , " omega " }, s,
-    { awful.layout.layouts[1] , awful.layout.layouts[5] , awful.layout.layouts[5] , awful.layout.layouts[1] , awful.layout.layouts[1] })
+    { awful.layout.layouts[1] , awful.layout.layouts[4] , awful.layout.layouts[4] , awful.layout.layouts[1] , awful.layout.layouts[1] })
 end
 -- }}}
 
