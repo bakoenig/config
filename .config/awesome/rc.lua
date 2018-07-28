@@ -169,17 +169,16 @@ mytimer:connect_signal("timeout", function () update_bat(batwidget) end)
 mytimer:start()
 
 -- Net widget
-
 netwidget = wibox.widget.textbox()
 function update_net(widget)
         local fnet = io.popen("iwgetid -r")
 		local ssid_now = fnet:read("*line")
 		if ssid_now == nil or ssid_now == '' then ssid_now = "Unknown" end
-        fnet.close()
+        fnet:close()
 		local wsget = io.popen("ip link show | cut -d' ' -f2,9")
 		local ws = wsget:read("*all")
         ws = ws:match("%w+: UP") or ws:match("ppp%w+: UNKNOWN")
-		wsget.close()
+		wsget:close()
 
         if ws then
 				netwidget:set_markup(string.sub(ssid_now,1,math.min(10,string.len(ssid_now))) .. '<span color="#00b100"> Connected</span>')

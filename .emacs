@@ -4,7 +4,7 @@
 (setq default-major-mode 'text-mode)
 (add-hook 'text-mode-hook 'text-mode-hook-identify)
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
-(add-hook 'emacs-startup-hook 'turn-on-auto-fill)
+(add-hook 'emacs-startup-hook 'turn-off-auto-fill)
 
 ;; miscellaneous settings
 (delete-selection-mode 1)

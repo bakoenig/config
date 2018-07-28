@@ -13,7 +13,7 @@ export HISTSIZE=2000
 ## aliases
 
 alias timesync='sudo ntpd -qg; sudo hwclock -w'
-alias emacs='emacs -nw'
+#alias emacs='emacs -nw'
 
 # package commands arch
 
