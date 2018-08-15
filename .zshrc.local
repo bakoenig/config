@@ -14,6 +14,9 @@ export HISTSIZE=2000
 
 alias timesync='sudo ntpd -qg; sudo hwclock -w'
 #alias emacs='emacs -nw'
+alias ls='ls --color=auto'
+alias ll='ls -l --color=auto'
+alias la='ls -la --color=auto'
 
 # package commands arch
 
