@@ -11,7 +11,8 @@ theme                               = {}
 themes_dir                          = os.getenv("HOME") .. "/.config/awesome/themes/steamburn"
 theme.wallpaper                     = themes_dir .. "/wall.png"
 
-theme.font                          = "Misc Tamsyn 11"
+--theme.font                          = "Tamsyn Mono 11"
+theme.font                          = "Ubuntu Mono 11"
 theme.fg_normal                     = "#e2ccb0"
 theme.fg_focus                      = "#d88166"
 theme.fg_urgent                     = "#8cdd81"

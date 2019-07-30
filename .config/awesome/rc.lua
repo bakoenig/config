@@ -640,10 +640,9 @@ awful.rules.rules = {
 
     { rule = { class = "Chromium" }, properties = { tag = tags[1][2] } },
     { rule = { class = "Firefox" }, properties = { tag = tags[1][2] } },
-    { rule = { class = "Opera" }, properties = { tag = tags[1][2] } },
+    { rule = { class = "firefox" }, properties = { tag = tags[1][2] } },
     { rule = { class = "Pcmanfm" }, properties = { tag = tags[1][3] } },
     { rule = { class = "Thunar" }, properties = { tag = tags[1][3] } },
-    { rule = { class = "Spacefm" }, properties = { tag = tags[1][3] } },
 	{ rule = { class = "Vlc" }, properties = { tag = tags[1][5] } },
 }
 -- }}}
