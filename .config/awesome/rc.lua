@@ -174,6 +174,7 @@ function update_net(widget)
         local fnet = io.popen("iwgetid -r")
 		local ssid_now = fnet:read("*line")
 		if ssid_now == nil or ssid_now == '' then ssid_now = "Unknown" end
+		local ssid_now = ssid_now:gsub('’', '')
         fnet:close()
 		local wsget = io.popen("ip link show | cut -d' ' -f2,9")
 		local ws = wsget:read("*all")
