@@ -12,7 +12,7 @@ export HISTSIZE=2000
 
 ## aliases
 
-alias timesync='sudo ntpd -qg; sudo hwclock -w'
+alias tsync='sudo ntpd -qg; sudo hwclock -w'
 #alias emacs='emacs -nw'
 alias ls='ls --color=auto'
 alias ll='ls -l --color=auto'
