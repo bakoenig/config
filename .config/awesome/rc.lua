@@ -48,7 +48,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 --beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
---beautiful.init(gears.filesystem.get_themes_dir() .. "zenburn/theme.lua")
+--beautiful.init("/home/bkoenig/.config/awesome/themes/orbit/theme.lua")
 beautiful.init("/home/bkoenig/.config/awesome/themes/steamburn/theme.lua")
 
 
@@ -477,7 +477,7 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    awful.key({ modkey }, "+",     function() awful.util.spawn("dmenu_run") end, --)
+    awful.key({ modkey }, "+",     function() awful.util.spawn("dmenu_run -fn Tamsyn-16") end, --)
 				--function () awful.screen.focused().mypromptbox:run() end,
               {description = "run dmenu", group = "launcher"}),
 

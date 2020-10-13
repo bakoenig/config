@@ -12,21 +12,21 @@ themes_dir                          = os.getenv("HOME") .. "/.config/awesome/the
 theme.wallpaper                     = themes_dir .. "/wall.png"
 
 --theme.font                          = "Tamsyn Mono 11"
-theme.font                          = "Ubuntu Mono 11"
+theme.font                          = "Ubuntu Mono 15"
 theme.fg_normal                     = "#e2ccb0"
 theme.fg_focus                      = "#d88166"
 theme.fg_urgent                     = "#8cdd81"
 theme.bg_normal                     = "#140c0b"
 theme.bg_focus                      = "#140c0b"
 theme.bg_urgent                     = "#140c0b"
-theme.border_width                  = 1
+theme.border_width                  = 2
 theme.border_normal                 = "#302627"
 theme.border_focus                  = "#c2745b"
 theme.border_marked                 = "#CC9393"
 theme.taglist_fg_focus              = "#d88166"
 theme.tasklist_bg_focus             = "#140c0b"
 theme.tasklist_fg_focus             = "#d88166"
-theme.menu_height                   = "16"
+theme.menu_height                   = "20"
 theme.menu_width                    = "140"
 
 theme.layout_txt_tile               = "[t]"

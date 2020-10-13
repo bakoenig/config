@@ -15,7 +15,7 @@ config = awful.util.getdir("config")
 themedir = config .. "/themes/sand"
 theme.wallpaper = themedir .. "/background.jpg"
 
-theme.font      = "Tamsyn Mono 10.5"
+theme.font      = "Tamsyn Mono 15"
 
 -- sand panel
 theme.fg_normal = "#222222"
@@ -45,8 +45,8 @@ theme.border_wnormal = "#303030"
 theme.border_focus  = "#303030"
 theme.border_marked = "#CC9393"
 
-theme.menu_height = "15"
-theme.menu_width  = "150"
+theme.menu_height = "30"
+theme.menu_width  = "300"
 
 theme.taglist_squares_sel   = themedir .. "/taglist/squaref.png"
 theme.taglist_squares_unsel = themedir .. "/taglist/squareb.png"

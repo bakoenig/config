@@ -65,3 +65,6 @@ nnoremap 	Q 			gqap
 colors hybrid
 "colors hybrid-light
 "colors xoria256
+
+"" set guifont
+set guifont=Ubuntu\ Mono\ 15

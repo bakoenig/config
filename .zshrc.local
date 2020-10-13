@@ -28,6 +28,9 @@ alias pacclear='sudo pacman -Scc'
 alias pacautorem='sudo pacman -Rns $(pacman -Qqtd)'
 alias pacinfo='pacman -Si'
 
+# source broot
+source /home/bkoenig/.config/broot/launcher/bash/br
+
 ## prompt
 prompt grml
 
