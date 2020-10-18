@@ -6,7 +6,6 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'ervandew/supertab'
 Bundle 'SirVer/ultisnips'
-Bundle 's-urbaniak/xoria256'
 Bundle 'w0ng/vim-hybrid'
 Bundle 'kien/ctrlp.vim'
 
@@ -64,7 +63,6 @@ nnoremap 	Q 			gqap
 "" different themes
 colors hybrid
 "colors hybrid-light
-"colors xoria256
 
 "" set guifont
 set guifont=Ubuntu\ Mono\ 15
