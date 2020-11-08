@@ -150,9 +150,9 @@ function update_bat(widget)
 			bat_status = "N/A"
 		end
 	if bat_status == "Discharging" then
-			batwidget:set_markup('<span color="red"> Bat ' .. bat_now .. '</span>')
+			batwidget:set_markup('<span color="red">Bat=' .. bat_now .. '</span>')
 	else
-			batwidget:set_markup('<span color="#7788af"> Bat ' .. bat_now .. '</span>')
+			batwidget:set_markup('<span color="#7788af">Bat=' .. bat_now .. '</span>')
 	end
 
 	if bat_now < 15 then
@@ -223,10 +223,10 @@ function update_volume(widget)
    status = string.match(status, "%[(o[^%]]*)%]")
    if string.find(status, "on", 1, true) then
        -- if unmuted
-	   volwidget:set_markup(volume)
+	   volwidget:set_markup('Vol=' .. volume)
    else
        -- if muted
-	   volwidget:set_markup('<span color="red">' .. volume .. '</span>')
+	   volwidget:set_markup('<span color="red">Vol=' .. volume .. '</span>')
 		end
 
 	end
@@ -370,7 +370,7 @@ end
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            arrow, netwidget, batwidget, spacer, volwidget, spacer,
+            arrow, netwidget, spacer, batwidget, spacer, volwidget, spacer,
             wibox.widget.systray(),
             mytextclock,
         },
