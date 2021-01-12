@@ -5,7 +5,7 @@
 export PATH=$PATH:~/bin
 export EDITOR="vim"
 unsetopt correct
-setopt vi
+setopt emacs
 setopt transientrprompt
 set hist_ignore_all_dups
 export HISTSIZE=2000
