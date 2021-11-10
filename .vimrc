@@ -39,7 +39,7 @@ set incsearch
 let g:UltiSnipsListSnippets = '<f4>'
 
 "" CTRL-P plugin
-let g:ctrlp_map = '<f12>'
+"let g:ctrlp_map = '<f12>'
 let g:ctrlp_cmd = 'CtrlPMRUFiles'
 
 "" status line

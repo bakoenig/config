@@ -48,8 +48,8 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 --beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
---beautiful.init("/home/bkoenig/.config/awesome/themes/orbit/theme.lua")
-beautiful.init("/home/bkoenig/.config/awesome/themes/steamburn/theme.lua")
+beautiful.init("/home/bkoenig/.config/awesome/themes/orbit/theme.lua")
+--beautiful.init("/home/bkoenig/.config/awesome/themes/steamburn/theme.lua")
 
 
 -- This is used later as the default terminal and editor to run.
@@ -477,7 +477,7 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    awful.key({ modkey }, "+",     function() awful.util.spawn("dmenu_run -fn Tamsyn-16") end, --)
+    awful.key({ modkey }, "+",     function() awful.util.spawn("dmenu_run -fn Tamsyn-10") end, --)
 				--function () awful.screen.focused().mypromptbox:run() end,
               {description = "run dmenu", group = "launcher"}),
 
@@ -626,7 +626,8 @@ awful.rules.rules = {
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = true }
+      --}, properties = { titlebars_enabled = true }
+      }, properties = { titlebars_enabled = false }
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.

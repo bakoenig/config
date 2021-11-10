@@ -11,8 +11,8 @@ themedir = config .. "/themes/orbit"
 theme.wallpaper = themedir .. "/background1.jpg"
 
 
-theme.font          = "Tamsyn 15"
---theme.font          = "Clean 15"
+theme.font          = "Tamsyn 10"
+--theme.font          = "Clean 11"
 
 theme.bg_normal     = "#1a1a1a"
 theme.bg_focus      = "#3e3e3e"
@@ -26,7 +26,7 @@ theme.fg_urgent     = "#98565e"
 theme.fg_highlight  = "#98565e"
 theme.fg_minimize   = "#98565e"
 
-theme.border_width  = "2"
+theme.border_width  = "1"
 theme.border_normal = "#000000"
 theme.border_focus  = "#a6a600"
 theme.border_marked = "#91231c"
@@ -59,8 +59,8 @@ theme.mouse_finder_color = "#cc9393"
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
-theme.menu_height = "30"
-theme.menu_width = "300"
+theme.menu_height = "20"
+theme.menu_width = "140"
 
 -- {{{ Icons
 -- {{{ Taglist

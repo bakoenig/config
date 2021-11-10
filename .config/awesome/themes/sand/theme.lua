@@ -15,7 +15,7 @@ config = awful.util.getdir("config")
 themedir = config .. "/themes/sand"
 theme.wallpaper = themedir .. "/background.jpg"
 
-theme.font      = "Tamsyn Mono 15"
+theme.font      = "Tamsyn Mono 11"
 
 -- sand panel
 theme.fg_normal = "#222222"
