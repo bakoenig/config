@@ -13,7 +13,7 @@ URxvt.cursorUnderline:	false
 URxvt.cursorColor:	  	#FFFF00
 URxvt.iconFile:		    /usr/share/icons/gnome/32x32/apps/terminal.png
 !URxvt.font:			xft:Misc Tamsyn-14
-URxvt.font: 			xft:xos4 Terminus:size=10
+URxvt.font: 			xft:xos4 Terminus:size=14
 
 !colors
 URxvt.background:	black

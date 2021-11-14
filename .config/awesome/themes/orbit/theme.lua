@@ -11,7 +11,7 @@ themedir = config .. "/themes/orbit"
 theme.wallpaper = themedir .. "/background1.jpg"
 
 
-theme.font          = "Tamsyn 10"
+theme.font          = "Tamsyn 15"
 --theme.font          = "Clean 11"
 
 theme.bg_normal     = "#1a1a1a"
