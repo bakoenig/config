@@ -477,7 +477,7 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    awful.key({ modkey }, "+",     function() awful.util.spawn("dmenu_run -fn Tamsyn-10") end, --)
+    awful.key({ modkey }, "+",     function() awful.util.spawn("dmenu_run -fn Tamsyn-15") end, --)
 				--function () awful.screen.focused().mypromptbox:run() end,
               {description = "run dmenu", group = "launcher"}),
 
