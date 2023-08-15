@@ -10,7 +10,7 @@ setopt transientrprompt
 set hist_ignore_all_dups
 export HISTSIZE=2000
 
-## aliases
+## aliases - sss
 
 alias tsync='sudo ntpd -qg; sudo hwclock -w'
 alias ls='ls --color=auto'
@@ -25,8 +25,7 @@ alias pacupgrade='yaourt -Syua'
 alias pacin='sudo pacman -S'
 alias pacrem='sudo pacman -Rns'
 #alias pacclear='sudo pacman -Scc'
-alias pacclear='paccache -r'
-alias pacautorem='sudo pacman -Rns $(pacman -Qqtd)'
+alias pacclear='sudo pacman -Rns $(pacman -Qqtd); paccache -r'
 alias pacinfo='pacman -Si'
 
 # source broot

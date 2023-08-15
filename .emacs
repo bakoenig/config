@@ -22,7 +22,7 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace) ; remove on save
 (show-paren-mode 1) ; show matching parentheses
 (setq shell-file-name "/bin/sh") ; default shell
-(require 'color-theme) ; enable color themes
+;(require 'color-theme) ; enable color themes
 
 ;; latex settings
 (load "auctex.el" nil t t)
@@ -50,7 +50,7 @@
 (recentf-mode 1)
 (setq recentf-max-saved-items 50)
 (setq recentf-max-menu-items 20)
-(desktop-save-mode t) ; save last session
+;(desktop-save-mode t) ; save last session
 
 ;; my functions
 
@@ -152,6 +152,7 @@
 (global-set-key "\C-l" 'previous-buffer)
 
 ;; pick theme after fully parsing .emacs
-(color-theme-initialize)
+;(color-theme-initialize)
 ;(load-theme 'deeper-blue t)
-(load-theme 'misterioso t)
+;(load-theme 'misterioso t)
+
