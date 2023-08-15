@@ -1,7 +1,6 @@
 ### .zshrc.local
 
 ## some variables
-
 export PATH=$PATH:~/bin
 export EDITOR="vim"
 unsetopt correct
@@ -11,32 +10,29 @@ set hist_ignore_all_dups
 export HISTSIZE=2000
 
 ## aliases
-
 alias tsync='sudo ntpd -qg; sudo hwclock -w'
 alias ls='ls --color=auto'
 alias ll='ls -l --color=auto'
 alias la='ls -la --color=auto'
 alias diskUsage='ncdu'
 
-# package commands arch
-
+## package commands arch
 alias pacup='sudo pacman -Syu'
 alias pacupgrade='yaourt -Syua'
 alias pacin='sudo pacman -S'
 alias pacrem='sudo pacman -Rns'
-#alias pacclear='sudo pacman -Scc'
 alias pacclear='sudo pacman -Rns $(pacman -Qqtd); paccache -r'
 alias pacinfo='pacman -Si'
 
-# source broot
+## source broot
 source /home/bkoenig/.config/broot/launcher/bash/br
 
 ## prompt
 prompt grml
 
 ## welcome screen
-
 clear
 echo
 archey3
 echo
+
