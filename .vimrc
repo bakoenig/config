@@ -9,7 +9,7 @@ Bundle 'SirVer/ultisnips'
 Bundle 'w0ng/vim-hybrid'
 Bundle 'kien/ctrlp.vim'
 
-"" general settingsss
+"" general settings
 set autoindent
 set nobackup
 set backspace=2
